@@ -1,0 +1,11 @@
+*~
+/elpa/
+/custom.el
+/settings.el
+/projectile.cache
+recentf
+savehist
+.org-id-locations
+.DS_Store
+*.elc
+*-autoloads.el
