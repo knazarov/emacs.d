@@ -9,3 +9,4 @@ savehist
 .DS_Store
 *.elc
 *-autoloads.el
+loaddefs.el

@@ -208,6 +208,22 @@
 
 (setq ido-use-virtual-buffers t)
 (add-hook 'after-init-hook 'ido-mode)
+;; flx is a flexible matcher like in sublime
+(add-hook 'after-init-hook 'flx-ido-mode)
+;; smex allows to run an interactive command through ido interface
+(global-set-key (kbd "M-x") 'smex)
+
+(defun my-ido-find-tag ()
+  "Find a tag using ido"
+  (interactive)
+  (tags-completion-table)
+  (let (tag-names)
+    (mapcar (lambda (x)
+              (push (prin1-to-string x t) tag-names))
+            tags-completion-table)
+    (find-tag (ido-completing-read "Tag: " tag-names))))
+
+(global-set-key (kbd "C-c t") 'my-ido-find-tag)
 
 
 ;; -------- Editor basics --------
