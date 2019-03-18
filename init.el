@@ -225,6 +225,15 @@
 
 (global-set-key (kbd "C-c t") 'my-ido-find-tag)
 
+;; Navigation when in russian layout
+
+(loop
+ for from across "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖ\ЭЯЧСМИТЬБЮ№"
+ for to   across "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>#"
+ do
+ (eval `(define-key key-translation-map (kbd ,(concat "C-" (string from))) (kbd ,(concat     "C-" (string to)))))
+ (eval `(define-key key-translation-map (kbd ,(concat "M-" (string from))) (kbd ,(concat     "M-" (string to))))))
+
 
 ;; -------- Editor basics --------
 
@@ -440,6 +449,148 @@
 (add-to-list 'auto-mode-alist
              (cons org-journal-file-pattern 'org-journal-mode))
 
+;; -------- Email --------
+
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
+
+(autoload 'mu4e "mu4e" "\
+If mu4e is not running yet, start it. Then, show the main
+window, unless BACKGROUND (prefix-argument) is non-nil.
+" t nil)
+
+
+(setq mu4e-html2text-command 'mu4e-shr2text)
+
+(setq mu4e-user-mail-address-list '("mail@knazarov.com" "k.nazarov@corp.mail.ru"))
+
+;; exlude myself from the email replies
+(setq mu4e-compose-dont-reply-to-self t)
+
+;; set mu4e as a default mail agent
+(setq mail-user-agent 'mu4e-user-agent)
+
+(setq mu4e-maildir "/Users/knazarov/Maildir")
+
+(setq
+ mu4e-view-show-images t
+ mu4e-image-max-width 800
+ mu4e-view-prefer-html t
+ mu4e-change-filenames-when-moving t ;; prevent duplicate UIDs
+ mu4e-get-mail-command "mbsync -a -q")
+
+(setq mu4e-sent-folder "/knazarov/Sent"
+      mu4e-drafts-folder "/knazarov/Drafts"
+      mu4e-trash-folder "/knazarov/Trash"
+      mu4e-refile-folder "/knazarov/Archive"
+      user-full-name "Konstantin Nazarov"
+      user-mail-address "mail@knazarov.com"
+      smtpmail-default-smtp-server "smtp.fastmail.com"
+      smtpmail-local-domain "knazarov.com"
+      smtpmail-smtp-server "smtp.fastmail.com"
+      smtpmail-stream-type 'starttls
+      smtpmail-smtp-service 993
+      send-mail-function 'sendmail-send-it)
+
+(defvar my-mu4e-account-alist
+  '(("knazarov"
+     (mu4e-sent-folder "/knazarov/Sent")
+     (mu4e-drafts-folder "/knazarov/Drafts")
+     (mu4e-trash-folder "/knazarov/Trash")
+     (mu4e-refile-folder "/knazarov/Archive")
+     (user-mail-address "mail@knazarov.com")
+     (message-sendmail-envelope-from "mail@knazarov.com")
+     (smtpmail-default-smtp-server "smtp.fastmail.com")
+     (smtpmail-local-domain "knazarov.com")
+     (smtpmail-smtp-user "mail@knazarov.com")
+     (smtpmail-smtp-server "smtp.fastmail.com")
+     (smtpmail-stream-type starttls)
+     (smtpmail-smtp-service 587)
+     (mu4e-compose-signature-auto-include nil)
+     (message-signature-file "~/.mail-sig.txt")
+     (message-cite-reply-position above)
+     (message-cite-style message-cite-style-outlook))
+    ("mailru"
+     (mu4e-sent-folder "/mailru/Sent")
+     (mu4e-drafts-folder "/mailru/Drafts")
+     (mu4e-trash-folder "/mailru/Trash")
+     (mu4e-refile-folder "/mailru/Archive")
+     (user-mail-address "k.nazarov@corp.mail.ru")
+     (message-sendmail-envelope-from "k.nazarov@corp.mail.ru")
+     (smtpmail-default-smtp-server "smtp.mail.ru")
+     (smtpmail-local-domain "corp.mail.ru")
+     (smtpmail-smtp-user "k.nazarov@corp.mail.ru")
+     (smtpmail-smtp-server "smtp.mail.ru")
+     (smtpmail-stream-type starttls)
+     (smtpmail-smtp-service 587)
+     (mu4e-compose-signature-auto-include nil)
+     (message-signature-file "~/.mail-sig.txt")
+     (message-cite-reply-position above)
+     (message-cite-style message-cite-style-outlook))
+    ))
+
+(defun my-mu4e-set-account ()
+  "Set the account for composing a message."
+  (let* ((account
+          (if mu4e-compose-parent-message
+              (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+                (string-match "/\\(.*?\\)/" maildir)
+                (match-string 1 maildir))
+            (completing-read (format "Compose with account: (%s) "
+                                     (mapconcat #'(lambda (var) (car var))
+                                                my-mu4e-account-alist "/"))
+                             (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+                             nil t nil nil (caar my-mu4e-account-alist))))
+         (account-vars (cdr (assoc account my-mu4e-account-alist))))
+    (if account-vars
+        (mapc #'(lambda (var)
+                  (set (car var) (cadr var)))
+              account-vars)
+      (error "No email account found"))))
+
+(defun my-mu4e-refile-folder-function (msg)
+  (let ((mu4e-accounts my-mu4e-account-alist)
+        (current-message msg)
+        (account))
+    (setq account (catch 'found
+                    (dolist (candidate mu4e-accounts)
+                      (if (string-match (car candidate)
+                                        (mu4e-message-field current-message :maildir))
+                          (throw 'found candidate)
+                        ))))
+    (if account
+        (cadr (assoc 'mu4e-refile-folder account))
+      (throw 'account_not_found (mu4e-message-field current-message :maildir))
+      )
+    )
+  )
+
+(setq mu4e-refile-folder 'my-mu4e-refile-folder-function)
+
+(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+
+;; Be smart about inserting signature for either cite-reply-position used
+(defun insert-signature ()
+  "Insert signature where you are replying"
+  ;; Do not insert if already done - needed when switching modes back/forth
+  (unless (save-excursion (message-goto-signature))
+    (save-excursion
+      (if (eq message-cite-reply-position 'below)
+          (goto-char (point-max))
+        (message-goto-body))
+      (insert-file-contents message-signature-file)
+      (save-excursion (insert "\n-- \n")))))
+(add-hook 'mu4e-compose-mode-hook 'insert-signature)
+
+;;(add-to-list 'mu4e-bookmarks
+;;             '("maildir:/mailru/INBOX"       "work inbox"     ?w))
+
+;;(add-to-list 'mu4e-bookmarks
+;;             '("maildir:/knazarov/INBOX"       "personal inbox"     ?p))
+
+(setq mu4e-bookmarks
+             '(("maildir:/knazarov/INBOX OR maildir:/mailru/INBOX"       "inbox"     ?i)))
+
+
 ;; -------- Programming --------
 
 ;; Rainbow delimeters highlight matching pairs of braces in different colors
@@ -465,3 +616,4 @@
 
 (setq company-backends '(company-capf (company-dabbrev-code) company-dabbrev))
 (add-hook 'prog-mode-hook #'company-mode)
+(add-hook 'mu4e-compose-mode-hook #'company-mode)
