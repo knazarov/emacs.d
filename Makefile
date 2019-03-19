@@ -6,6 +6,7 @@ init.elc: init.el
 third-party/third-party-autoloads.el: init.el
 	emacs -batch -L third-party --eval='(progn (package-initialize) (package-generate-autoloads "third-party" "~/.emacs.d/third-party"))'
 	touch third-party/third-party-autoloads.el
+	emacs -batch -L third-party --eval='(byte-recompile-directory "~/.emacs.d/third-party" 0)'
 
 clean:
 	rm -f init.elc

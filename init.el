@@ -26,6 +26,8 @@
 
 ;; -------- Packages --------
 
+(eval-when-compile (require 'cl-lib))
+
 (add-to-list 'load-path "~/.emacs.d/third-party")
 
 ;;(require 'async-autoloads)
@@ -208,6 +210,12 @@
 
 (setq ido-use-virtual-buffers t)
 (add-hook 'after-init-hook 'ido-mode)
+(add-hook 'after-init-hook 'ido-everywhere)
+
+(require 'ido-completing-read+)
+
+(add-hook 'after-init-hook 'ido-ubiquitous-mode)
+
 ;; flx is a flexible matcher like in sublime
 (add-hook 'after-init-hook 'flx-ido-mode)
 ;; smex allows to run an interactive command through ido interface
@@ -227,7 +235,7 @@
 
 ;; Navigation when in russian layout
 
-(loop
+(cl-loop
  for from across "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖ\ЭЯЧСМИТЬБЮ№"
  for to   across "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>#"
  do
@@ -617,3 +625,10 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 (setq company-backends '(company-capf (company-dabbrev-code) company-dabbrev))
 (add-hook 'prog-mode-hook #'company-mode)
 (add-hook 'mu4e-compose-mode-hook #'company-mode)
+
+
+;; Can't live without magit. It makes working with git sooo much easie
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
+(setq magit-completing-read-function 'magit-ido-completing-read)
