@@ -86,14 +86,6 @@ the target form."
                  forms)
        ,retval)))
 
-(defmacro --doto (eval-initial-value &rest forms)
-  "Anaphoric form of `-doto'.
-Note: `it' is not required in each form."
-  (declare (indent 1))
-  `(let ((it ,eval-initial-value))
-     ,@forms
-     it))
-
 (defun -each (list fn)
   "Call FN with every item in LIST. Return nil, used for side-effects only."
   (--each list (funcall fn it)))
@@ -2540,14 +2532,10 @@ the new seed."
 
 (defun -cons-pair? (con)
   "Return non-nil if CON is true cons pair.
-That is (A . B) where B is not a list.
-
-Alias: `-cons-pair-p'"
+That is (A . B) where B is not a list."
   (declare (pure t) (side-effect-free t))
   (and (listp con)
        (not (listp (cdr con)))))
-
-(defalias '-cons-pair-p '-cons-pair?)
 
 (defun -cons-to-list (con)
   "Convert a cons pair to a list with `car' and `cdr' of the pair respectively."
@@ -2953,7 +2941,6 @@ structure such as plist or alist."
                              "-unfold"
                              "--unfold"
                              "-cons-pair?"
-                             "-cons-pair-p"
                              "-cons-to-list"
                              "-value-to-list"
                              "-tree-mapreduce-from"

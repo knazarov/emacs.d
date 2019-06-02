@@ -279,7 +279,14 @@
 
 (setq org-modules '(org-w3m org-bbdb org-bibtex org-docview
                             org-gnus org-info org-irc org-mhe
-                            org-rmail org-checklist))
+                            org-rmail org-checklist org-mu4e))
+
+;; avoid inadvertently editing hidden text
+(setq org-catch-invisible-edits 'show-and-error)
+
+;; hide empty spaces between folded subtrees
+(setq org-cycle-separator-lines 0)
+
 ;; use hours in clocktable instead of days and hours
 (setq org-time-clocksum-format "%d:%02d")
 
@@ -446,12 +453,12 @@
 (global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
 
 ;; org-journal-file-pattern can be generated like this:
-;;(setq org-journal-file-format "%Y%m%d.org")
+(setq org-journal-file-format "%Y%m%d.org")
 ;;(setq org-journal-file-pattern (org-journal-dir-and-format->regex
 ;;                                org-journal-dir org-journal-file-format))
 
 (setq org-journal-file-pattern
-      (concat org-journal-dir
+      (concat (file-truename org-journal-dir)
               "\\(?1:[0-9]\\{4\\}\\)\\(?2:[0-9][0-9]\\)\\(?3:[0-9][0-9]\\).org\\(\\.gpg\\)?\\'"))
 
 (add-to-list 'auto-mode-alist
@@ -466,6 +473,7 @@ If mu4e is not running yet, start it. Then, show the main
 window, unless BACKGROUND (prefix-argument) is non-nil.
 " t nil)
 
+(setq mu4e-attachment-dir  "~/Downloads")
 
 (setq mu4e-html2text-command 'mu4e-shr2text)
 
@@ -632,3 +640,8 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (setq magit-completing-read-function 'magit-ido-completing-read)
+
+
+;; LSP
+
+(add-hook 'lua-mode-hook #'lsp)
