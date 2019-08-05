@@ -660,4 +660,44 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 
 ;; LSP
 
+(defvar lsp-lua-tarantool-lsp-path nil
+  "Path to language server directory.
+This is the directory containing lua-lsp.")
+
+
+(setq lsp-lua-tarantool-lsp-path (expand-file-name "~/dev/lua-lsp/bin/lua-lsp"))
+
+(defun lsp-lua-tarantool--find-tarantool()
+  "Get the path to tarantool."
+  (cond
+   ((boundp 'lsp-lua-tarantool-tarantool) lsp-lua-tarantool-tarantool)
+   ((executable-find "tarantool"))
+   (t nil))
+  )
+
+(defvar lsp-lua-tarantool-tarantool
+  (lsp-lua-tarantool--find-tarantool)
+  "Full path to tarantool executeable.
+You only need to set this if tarantool is not on your path.")
+
+(defun lsp-lua-tarantool--command-string()
+  "Return the command to start the server."
+  (cond
+   ((boundp 'lsp-lua-tarantool-lsp-path) (list lsp-lua-tarantool-tarantool
+                                          lsp-lua-tarantool-lsp-path))
+   (t (error "Cound not find lsp-lua"))))
+
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-lua-tarantool--command-string)
+                  :major-modes '(lua-mode)
+                  :server-id 'tarantool-lua-ls
+                  :notification-handlers
+                  (lsp-ht
+                   ("tarantool-lsp/progressReport" 'ignore))))
+
 (add-hook 'lua-mode-hook #'lsp)
+
+;; vterm
+
+(add-to-list 'load-path (expand-file-name "~/dev/emacs-libvterm/"))
+(require 'vterm)
