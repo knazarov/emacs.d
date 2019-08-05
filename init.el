@@ -477,6 +477,9 @@ If mu4e is not running yet, start it. Then, show the main
 window, unless BACKGROUND (prefix-argument) is non-nil.
 " t nil)
 
+(setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+
 (setq mu4e-attachment-dir  "~/Downloads")
 
 (setq mu4e-html2text-command 'mu4e-shr2text)
@@ -511,8 +514,11 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
       smtpmail-smtp-service 993
       send-mail-function 'sendmail-send-it)
 
+(setq mu4e-compose-signature
+  "<#part type=text/html><html><body><p>Hello ! I am the html signature which can contains anything in html !</p></body></html><#/part>" )
+
 (defvar my-mu4e-account-alist
-  '(("knazarov"
+  `(("knazarov"
      (mu4e-sent-folder "/knazarov/Sent")
      (mu4e-drafts-folder "/knazarov/Drafts")
      (mu4e-trash-folder "/knazarov/Trash")
@@ -525,7 +531,10 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
      (smtpmail-smtp-server "smtp.fastmail.com")
      (smtpmail-stream-type starttls)
      (smtpmail-smtp-service 587)
-     (mu4e-compose-signature-auto-include nil)
+     ;;(mu4e-compose-signature-auto-include nil)
+     (mu4e-compose-signature ,(with-temp-buffer
+                                     (insert-file-contents "~/.mail-sig.txt")
+                                     (buffer-string)))
      (message-signature-file "~/.mail-sig.txt")
      (message-cite-reply-position above)
      (message-cite-style message-cite-style-outlook))
@@ -544,6 +553,9 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
      (smtpmail-smtp-service 587)
      (mu4e-compose-signature-auto-include nil)
      (message-signature-file "~/.mail-sig.txt")
+     (mu4e-compose-signature ,(with-temp-buffer
+                                     (insert-file-contents "~/.mail-sig.txt")
+                                     (buffer-string)))
      (message-cite-reply-position above)
      (message-cite-style message-cite-style-outlook))
     ))
