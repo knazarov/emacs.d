@@ -281,6 +281,10 @@
                             org-gnus org-info org-irc org-mhe
                             org-rmail org-checklist org-mu4e))
 
+;; navigate with (org-goto) by offering the full list of targets in ido-mode
+(setq org-goto-interface 'outline-path-completion) ;; don't search incrementally
+(setq org-outline-path-complete-in-steps nil) ;; see whole path at once
+
 ;; avoid inadvertently editing hidden text
 (setq org-catch-invisible-edits 'show-and-error)
 
