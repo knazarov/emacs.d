@@ -142,6 +142,20 @@
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
+
+;; -------- Minor modes --------
+
+;; Hide some miror modes from sight to not clutter the modeline
+
+(require 'diminish)
+
+(diminish 'company-mode)
+(diminish 'projectile-mode)
+(diminish 'editorconfig-mode)
+(diminish 'eldoc-mode)
+(diminish 'flycheck-mode)
+(diminish 'which-key-mode)
+
 ;; -------- Theme --------
 
 ;; I mostly use Zenburn today, with a few modifications:
@@ -264,6 +278,10 @@
 
 (setq-default bidi-display-reordering nil)
 
+;; Alow to copy-paste to x clipboard inside console
+
+(xclip-mode)
+
 ;; -------- Tools and environment --------
 
 ;; By default, Emacs doesn't add system path to its search places
@@ -280,6 +298,10 @@
 (setq org-modules '(org-w3m org-bbdb org-bibtex org-docview
                             org-gnus org-info org-irc org-mhe
                             org-rmail org-checklist org-mu4e))
+
+;; Sometimes I sit at night until 4 AM, and I still want org to treat it
+;; as "today"
+(setq org-extend-today-until 4)
 
 ;; navigate with (org-goto) by offering the full list of targets in ido-mode
 (setq org-goto-interface 'outline-path-completion) ;; don't search incrementally
@@ -313,6 +335,8 @@
                       ("GOOGLE" . ?g)
                       ("QUICK" . ?q)))
 
+(setq org-journal-tag-persistent-alist '(("BLOG" ?b)))
+
 ;; Default todo sequence
 (setq org-todo-keywords
       '((sequence "INBOX(i)" "TODO(t)" "ERRAND(k)"
@@ -321,10 +345,10 @@
 
 ;; Babel and code block embedding
 (setq org-confirm-babel-evaluate nil)
-;;(org-babel-do-load-languages
-;; 'org-babel-load-languages
-;; '((emacs-lisp . nil)
-;;   (plantuml . t)))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
 
 ;; Log TODO state changes and clock-ins into the LOGBOOK drawer
 (setq org-clock-into-drawer t)
@@ -470,7 +494,7 @@
 
 ;; -------- Email --------
 
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 
 (autoload 'mu4e "mu4e" "\
 If mu4e is not running yet, start it. Then, show the main
@@ -492,14 +516,15 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 ;; set mu4e as a default mail agent
 (setq mail-user-agent 'mu4e-user-agent)
 
-(setq mu4e-maildir "/Users/knazarov/Maildir")
+(setq mu4e-maildir "/home/knazarov/mail")
 
 (setq
  mu4e-view-show-images t
  mu4e-image-max-width 800
  mu4e-view-prefer-html t
  mu4e-change-filenames-when-moving t ;; prevent duplicate UIDs
- mu4e-get-mail-command "mbsync -a -q")
+ mu4e-get-mail-command "mbsync -a -q"
+ mu4e-headers-include-related nil)
 
 (setq mu4e-sent-folder "/knazarov/Sent"
       mu4e-drafts-folder "/knazarov/Drafts"
@@ -511,8 +536,8 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
       smtpmail-local-domain "knazarov.com"
       smtpmail-smtp-server "smtp.fastmail.com"
       smtpmail-stream-type 'starttls
-      smtpmail-smtp-service 993
-      send-mail-function 'sendmail-send-it)
+      smtpmail-smtp-service 587
+      message-send-mail-function 'smtpmail-send-it)
 
 (setq mu4e-compose-signature
   "<#part type=text/html><html><body><p>Hello ! I am the html signature which can contains anything in html !</p></body></html><#/part>" )
@@ -660,44 +685,16 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 
 ;; LSP
 
-(defvar lsp-lua-tarantool-lsp-path nil
-  "Path to language server directory.
-This is the directory containing lua-lsp.")
-
-
-(setq lsp-lua-tarantool-lsp-path (expand-file-name "~/dev/lua-lsp/bin/lua-lsp"))
-
-(defun lsp-lua-tarantool--find-tarantool()
-  "Get the path to tarantool."
-  (cond
-   ((boundp 'lsp-lua-tarantool-tarantool) lsp-lua-tarantool-tarantool)
-   ((executable-find "tarantool"))
-   (t nil))
-  )
-
-(defvar lsp-lua-tarantool-tarantool
-  (lsp-lua-tarantool--find-tarantool)
-  "Full path to tarantool executeable.
-You only need to set this if tarantool is not on your path.")
-
-(defun lsp-lua-tarantool--command-string()
-  "Return the command to start the server."
-  (cond
-   ((boundp 'lsp-lua-tarantool-lsp-path) (list lsp-lua-tarantool-tarantool
-                                          lsp-lua-tarantool-lsp-path))
-   (t (error "Cound not find lsp-lua"))))
-
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-stdio-connection 'lsp-lua-tarantool--command-string)
-                  :major-modes '(lua-mode)
-                  :server-id 'tarantool-lua-ls
-                  :notification-handlers
-                  (lsp-ht
-                   ("tarantool-lsp/progressReport" 'ignore))))
 
 (add-hook 'lua-mode-hook #'lsp)
 
 ;; vterm
 
+
 (add-to-list 'load-path (expand-file-name "~/dev/emacs-libvterm/"))
-(require 'vterm)
+(put 'upcase-region 'disabled nil)
+
+(autoload 'vterm "vterm" "\
+If vterm is not running yet, start it. Then, show the main
+window, unless BACKGROUND (prefix-argument) is non-nil.
+" t nil)
