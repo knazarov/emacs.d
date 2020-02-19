@@ -116,10 +116,10 @@
                                    fringe-indicator-alist))
 
 ;; No more typing the whole yes or no. Just y or n will do.
-;;(fset 'yes-or-no-p 'y-or-n-p)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Makes *scratch* empty.
-;;(setq initial-scratch-message "")
+(setq initial-scratch-message "")
 
 ;; -------- Cursor and movement --------
 
@@ -188,7 +188,10 @@
                    '(font . "PragmataPro-15"))))
 
 
-;;
+;; -------- Autoloads --------
+
+;; This helps speed up startup times, as most modules are loaded only
+;; when first used.
 
 (defvar autoload-file (concat user-emacs-directory "third-party/third-party-autoloads.el"))
 (load autoload-file)
@@ -217,7 +220,6 @@
 ;; persp-mode allows you to have tagged workspaces akin to
 ;; Linux tiled-window managers.
 
-
 (add-hook 'after-init-hook 'persp-mode)
 
 ;; ido-mode allows for easy navigation between buffers and files
@@ -232,6 +234,7 @@
 
 ;; flx is a flexible matcher like in sublime
 (add-hook 'after-init-hook 'flx-ido-mode)
+
 ;; smex allows to run an interactive command through ido interface
 (global-set-key (kbd "M-x") 'smex)
 
@@ -381,7 +384,7 @@
       )
 ;; org-protocol allows you to capture stuff into your system from web
 ;; browsers
-;;(require 'org-protocol)
+(require 'org-protocol)
 
 ;; Refiling allows you to quickly move an element with its children to
 ;; another location.
@@ -690,6 +693,9 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 
 ;; vterm
 
+;; Vterm is a fully featured terminal emulator, that works inside
+;; emacs buffers. It is miles ahead of "term" and "eshell" both in
+;; speed and features.
 
 (add-to-list 'load-path (expand-file-name "~/dev/emacs-libvterm/"))
 (put 'upcase-region 'disabled nil)

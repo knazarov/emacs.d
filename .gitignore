@@ -8,5 +8,8 @@ savehist
 .org-id-locations
 .DS_Store
 *.elc
-*-autoloads.el
 loaddefs.el
+ido.last
+bookmarks
+session.*
+org-journal.cache
