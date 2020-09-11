@@ -163,17 +163,16 @@
 
 ;; -------- Theme --------
 
-;; I mostly use Zenburn today, with a few modifications:
+;; My current favorite is Leuven, with a few modifications:
 ;; - I don't like that fringes are visible, so I set them to regular
 ;;   background color
 ;; - Panels look better without outset/inset shadows
 
-(require 'zenburn-theme)
-(load-theme 'zenburn)
+(load-theme 'leuven)
 
-(zenburn-with-color-variables
-  (set-face-background 'fringe zenburn-bg))
-
+(set-face-attribute 'fringe nil
+                      :foreground (face-foreground 'default)
+                      :background (face-background 'default))
 
 ;; On many OSs the modeline has an outset border (lighter on top and
 ;; darker on the bottom). This doesn't look pretty on a flat theme.
@@ -201,6 +200,15 @@
 
 (defvar autoload-file (concat user-emacs-directory "third-party/third-party-autoloads.el"))
 (load autoload-file)
+
+
+;; -------- Packages --------
+(diminish 'company-mode)
+(diminish 'projectile-mode)
+(diminish 'editorconfig-mode)
+(diminish 'eldoc-mode)
+(diminish 'flycheck-mode)
+(diminish 'which-key-mode)
 
 ;; -------- Navigation --------
 
