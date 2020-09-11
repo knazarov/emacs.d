@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "ag" "ag.el" (23975 33179 326258 926000))
+;;;### (autoloads nil "ag" "ag.el" (0 0 0 0))
 ;;; Generated autoloads from ag.el
 
 (autoload 'ag "ag" "\
@@ -103,19 +103,16 @@ See also `ag-dired-regexp'.
 \(fn REGEXP)" t nil)
 
 (autoload 'ag-kill-buffers "ag" "\
-Kill all `ag-mode' buffers.
-
-\(fn)" t nil)
+Kill all `ag-mode' buffers." t nil)
 
 (autoload 'ag-kill-other-buffers "ag" "\
-Kill all `ag-mode' buffers other than the current buffer.
+Kill all `ag-mode' buffers other than the current buffer." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ag" '("ag-" "ag/")))
 
 ;;;***
 
-;;;### (autoloads nil "cmake-mode" "cmake-mode.el" (23975 33179 326258
-;;;;;;  926000))
+;;;### (autoloads nil "cmake-mode" "cmake-mode.el" (0 0 0 0))
 ;;; Generated autoloads from cmake-mode.el
 
 (autoload 'cmake-mode "cmake-mode" "\
@@ -130,49 +127,43 @@ optional argument topic will be appended to the argument list.
 \(fn TYPE &optional TOPIC BUFFER)" t nil)
 
 (autoload 'cmake-help-list-commands "cmake-mode" "\
-Prints out a list of the cmake commands.
-
-\(fn)" t nil)
+Prints out a list of the cmake commands." t nil)
 
 (autoload 'cmake-help-command "cmake-mode" "\
-Prints out the help message for the command the cursor is on.
-
-\(fn)" t nil)
+Prints out the help message for the command the cursor is on." t nil)
 
 (autoload 'cmake-help-module "cmake-mode" "\
-Prints out the help message for the module the cursor is on.
-
-\(fn)" t nil)
+Prints out the help message for the module the cursor is on." t nil)
 
 (autoload 'cmake-help-variable "cmake-mode" "\
-Prints out the help message for the variable the cursor is on.
-
-\(fn)" t nil)
+Prints out the help message for the variable the cursor is on." t nil)
 
 (autoload 'cmake-help-property "cmake-mode" "\
-Prints out the help message for the property the cursor is on.
-
-\(fn)" t nil)
+Prints out the help message for the property the cursor is on." t nil)
 
 (autoload 'cmake-help "cmake-mode" "\
-Queries for any of the four available help topics and prints out the appropriate page.
-
-\(fn)" t nil)
+Queries for any of the four available help topics and prints out the appropriate page." t nil)
 
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
 
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "cmake-mode" '("cmake-")))
+
 ;;;***
 
-;;;### (autoloads nil "company" "company.el" (23975 33179 330258
-;;;;;;  932000))
+;;;### (autoloads nil "company" "company.el" (0 0 0 0))
 ;;; Generated autoloads from company.el
 
 (autoload 'company-mode "company" "\
 \"complete anything\"; is an in-buffer completion framework.
 Completion starts automatically, depending on the values
 `company-idle-delay' and `company-minimum-prefix-length'.
+
+If called interactively, enable Company mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
 
 Completion can be controlled with the commands:
 `company-complete-common', `company-complete-selection', `company-complete',
@@ -199,6 +190,8 @@ keymap during active completions (`company-active-map'):
 
 \(fn &optional ARG)" t nil)
 
+(put 'global-company-mode 'globalized-minor-mode t)
+
 (defvar global-company-mode nil "\
 Non-nil if Global Company mode is enabled.
 See the `global-company-mode' command
@@ -221,23 +214,20 @@ See `company-mode' for more information on Company mode.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'company-manual-begin "company" "\
-
-
-\(fn)" t nil)
+(autoload 'company-manual-begin "company" nil t nil)
 
 (autoload 'company-complete "company" "\
 Insert the common part of all candidates or the current selection.
 The first time this is called, the common part is inserted, the second
 time, or when the selection has been changed, the selected candidate is
-inserted.
+inserted." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company" '("company-")))
 
 ;;;***
 
-;;;### (autoloads nil "company-abbrev" "company-abbrev.el" (23975
-;;;;;;  33179 326258 926000))
+;;;### (autoloads nil "company-abbrev" "company-abbrev.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from company-abbrev.el
 
 (autoload 'company-abbrev "company-abbrev" "\
@@ -245,10 +235,12 @@ inserted.
 
 \(fn COMMAND &optional ARG &rest IGNORED)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-abbrev" '("company-abbrev-insert")))
+
 ;;;***
 
-;;;### (autoloads nil "company-dabbrev" "company-dabbrev.el" (23975
-;;;;;;  33179 326258 926000))
+;;;### (autoloads nil "company-dabbrev" "company-dabbrev.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from company-dabbrev.el
 
 (autoload 'company-dabbrev "company-dabbrev" "\
@@ -256,10 +248,12 @@ dabbrev-like `company-mode' completion backend.
 
 \(fn COMMAND &optional ARG &rest IGNORED)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-dabbrev" '("company-dabbrev-")))
+
 ;;;***
 
 ;;;### (autoloads nil "company-dabbrev-code" "company-dabbrev-code.el"
-;;;;;;  (23975 33179 326258 926000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from company-dabbrev-code.el
 
 (autoload 'company-dabbrev-code "company-dabbrev-code" "\
@@ -269,10 +263,11 @@ comments or strings.
 
 \(fn COMMAND &optional ARG &rest IGNORED)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-dabbrev-code" '("company-dabbrev-code-")))
+
 ;;;***
 
-;;;### (autoloads nil "company-lsp" "company-lsp.el" (23975 33179
-;;;;;;  330258 932000))
+;;;### (autoloads nil "company-lsp" "company-lsp.el" (0 0 0 0))
 ;;; Generated autoloads from company-lsp.el
 
 (autoload 'company-lsp "company-lsp" "\
@@ -281,6 +276,8 @@ Define a company backend for lsp-mode.
 See the documentation of `company-backends' for COMMAND and ARG.
 
 \(fn COMMAND &optional ARG &rest _)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-lsp" '("company-lsp-")))
 
 ;;;***
 
@@ -331,8 +328,8 @@ what diminished modes would be on the mode-line if they were still minor.
 
 ;;;***
 
-;;;### (autoloads nil "dockerfile-mode" "dockerfile-mode.el" (23975
-;;;;;;  33179 334258 937000))
+;;;### (autoloads nil "dockerfile-mode" "dockerfile-mode.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from dockerfile-mode.el
 
 (autoload 'dockerfile-build-buffer "dockerfile-mode" "\
@@ -354,18 +351,17 @@ A major mode to edit Dockerfiles.
 
 (add-to-list 'auto-mode-alist '("Dockerfile\\(?:\\..*\\)?\\'" . dockerfile-mode))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dockerfile-mode" '("dockerfile-")))
+
 ;;;***
 
-;;;### (autoloads nil "editorconfig" "editorconfig.el" (23975 33179
-;;;;;;  334258 937000))
+;;;### (autoloads nil "editorconfig" "editorconfig.el" (0 0 0 0))
 ;;; Generated autoloads from editorconfig.el
 
 (autoload 'editorconfig-apply "editorconfig" "\
 Get and apply EditorConfig properties to current buffer.
 This function ignores `editorconfig-exclude-modes' and
-`editorconfig-exclude-regexps', and always applies available properties.
-
-\(fn)" t nil)
+`editorconfig-exclude-regexps', and always applies available properties." t nil)
 
 (defvar editorconfig-mode nil "\
 Non-nil if Editorconfig mode is enabled.
@@ -380,32 +376,33 @@ or call the function `editorconfig-mode'.")
 (autoload 'editorconfig-mode "editorconfig" "\
 Toggle EditorConfig feature.
 
+If called interactively, enable Editorconfig mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 To disable EditorConfig in some buffers, modify
 `editorconfig-exclude-modes' or `editorconfig-exclude-regexps'.
 
 \(fn &optional ARG)" t nil)
 
 (autoload 'editorconfig-find-current-editorconfig "editorconfig" "\
-Find the closest .editorconfig file for current file.
-
-\(fn)" t nil)
+Find the closest .editorconfig file for current file." t nil)
 
 (autoload 'editorconfig-display-current-properties "editorconfig" "\
-Display EditorConfig properties extracted for current buffer.
-
-\(fn)" t nil)
+Display EditorConfig properties extracted for current buffer." t nil)
 
 (defalias 'describe-editorconfig-properties 'editorconfig-display-current-properties)
 
 (autoload 'editorconfig-format-buffer "editorconfig" "\
-Format buffer according to .editorconfig indent_style and indent_width.
+Format buffer according to .editorconfig indent_style and indent_width." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig" '("editorconfig-")))
 
 ;;;***
 
 ;;;### (autoloads nil "editorconfig-conf-mode" "editorconfig-conf-mode.el"
-;;;;;;  (23975 33179 334258 937000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from editorconfig-conf-mode.el
 
 (autoload 'editorconfig-conf-mode "editorconfig-conf-mode" "\
@@ -415,10 +412,12 @@ Major mode for editing .editorconfig files.
 
 (add-to-list 'auto-mode-alist '("\\.editorconfig\\'" . editorconfig-conf-mode))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-conf-mode" '("editorconfig-conf-mode-syntax-table")))
+
 ;;;***
 
 ;;;### (autoloads nil "editorconfig-core" "editorconfig-core.el"
-;;;;;;  (23975 33179 334258 937000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from editorconfig-core.el
 
 (autoload 'editorconfig-core-get-nearest-editorconfig "editorconfig-core" "\
@@ -448,10 +447,12 @@ hash object instead.
 
 \(fn &optional FILE CONFNAME CONFVERSION)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-core" '("editorconfig-core-")))
+
 ;;;***
 
 ;;;### (autoloads nil "editorconfig-fnmatch" "editorconfig-fnmatch.el"
-;;;;;;  (23975 33179 334258 937000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from editorconfig-fnmatch.el
 
 (autoload 'editorconfig-fnmatch-p "editorconfig-fnmatch" "\
@@ -472,10 +473,12 @@ be used:
 
 \(fn STRING PATTERN)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-fnmatch" '("editorconfig-fnmatch-")))
+
 ;;;***
 
 ;;;### (autoloads nil "exec-path-from-shell" "exec-path-from-shell.el"
-;;;;;;  (23975 33179 334258 937000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from exec-path-from-shell.el
 
 (autoload 'exec-path-from-shell-copy-envs "exec-path-from-shell" "\
@@ -501,14 +504,13 @@ Initialize environment from the user's shell.
 
 The values of all the environment variables named in
 `exec-path-from-shell-variables' are set from the corresponding
-values used in the user's shell.
+values used in the user's shell." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "exec-path-from-shell" '("exec-path-from-shell-")))
 
 ;;;***
 
-;;;### (autoloads nil "flx-ido" "flx-ido.el" (23975 33179 334258
-;;;;;;  937000))
+;;;### (autoloads nil "flx-ido" "flx-ido.el" (0 0 0 0))
 ;;; Generated autoloads from flx-ido.el
 
 (defvar flx-ido-mode nil "\
@@ -521,18 +523,22 @@ for a description of this minor mode.")
 (autoload 'flx-ido-mode "flx-ido" "\
 Toggle flx ido mode
 
+If called interactively, enable Flx-Ido mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flx-ido" '("flx-")))
 
 ;;;***
 
-;;;### (autoloads nil "flycheck" "flycheck.el" (23975 33179 342258
-;;;;;;  948000))
+;;;### (autoloads nil "flycheck" "flycheck.el" (0 0 0 0))
 ;;; Generated autoloads from flycheck.el
 
 (autoload 'flycheck-manual "flycheck" "\
-Open the Flycheck manual.
-
-\(fn)" t nil)
+Open the Flycheck manual." t nil)
 
 (autoload 'flycheck-mode "flycheck" "\
 Minor mode for on-the-fly syntax checking.
@@ -553,6 +559,8 @@ buffer manually.
 \\{flycheck-mode-map}
 
 \(fn &optional ARG)" t nil)
+
+(put 'global-flycheck-mode 'globalized-minor-mode t)
 
 (defvar global-flycheck-mode nil "\
 Non-nil if Global Flycheck mode is enabled.
@@ -747,9 +755,11 @@ Use this together with the `option', `option-list' and
 
 (function-put 'flycheck-def-option-var 'doc-string-elt '4)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck" '("contains-rebar-config" "flycheck-" "help-flycheck-checker-d" "list-flycheck-errors" "locate-rebar3-project-root" "read-flycheck-")))
+
 ;;;***
 
-;;;### (autoloads nil "ghub" "ghub.el" (23975 33179 342258 948000))
+;;;### (autoloads nil "ghub" "ghub.el" (0 0 0 0))
 ;;; Generated autoloads from ghub.el
 
 (autoload 'ghub-create-token "ghub" "\
@@ -777,14 +787,13 @@ such as a mistyped password, then that can prevent Ghub from
 asking the user for the correct information again.
 
 Set `url-http-real-basic-auth-storage' to nil
-and call `auth-source-forget+'.
+and call `auth-source-forget+'." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ghub" '("auth-source-netrc-parse-next-interesting@save-match-data" "ghub-")))
 
 ;;;***
 
-;;;### (autoloads nil "git-commit" "git-commit.el" (23975 33179 342258
-;;;;;;  948000))
+;;;### (autoloads nil "git-commit" "git-commit.el" (0 0 0 0))
 ;;; Generated autoloads from git-commit.el
 
 (defvar global-git-commit-mode t "\
@@ -804,24 +813,24 @@ when a Git commit message file is opened.  That usually happens
 when Git uses the Emacsclient as $GIT_EDITOR to have the user
 provide such a commit message.
 
+If called interactively, enable Global Git-Commit mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (defconst git-commit-filename-regexp "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'")
 
-(autoload 'git-commit-setup-check-buffer "git-commit" "\
+(autoload 'git-commit-setup-check-buffer "git-commit" nil nil nil)
 
+(autoload 'git-commit-setup "git-commit" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'git-commit-setup "git-commit" "\
-
-
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git-commit" '("git-commit-")))
 
 ;;;***
 
-;;;### (autoloads nil "git-rebase" "git-rebase.el" (23975 33179 342258
-;;;;;;  948000))
+;;;### (autoloads nil "git-rebase" "git-rebase.el" (0 0 0 0))
 ;;; Generated autoloads from git-rebase.el
 
 (autoload 'git-rebase-mode "git-rebase" "\
@@ -837,6 +846,8 @@ running 'man git-rebase' at the command line) for details.
 (defconst git-rebase-filename-regexp "/git-rebase-todo\\'")
 
 (add-to-list 'auto-mode-alist (cons git-rebase-filename-regexp 'git-rebase-mode))
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git-rebase" '("git-rebase-")))
 
 ;;;***
 
@@ -1047,8 +1058,7 @@ the `gorename' tool. With FORCE, call `gorename' with the
 
 ;;;***
 
-;;;### (autoloads nil "hcl-mode" "hcl-mode.el" (23977 43405 678534
-;;;;;;  544000))
+;;;### (autoloads nil "hcl-mode" "hcl-mode.el" (0 0 0 0))
 ;;; Generated autoloads from hcl-mode.el
 
 (autoload 'hcl-mode "hcl-mode" "\
@@ -1059,6 +1069,8 @@ Major mode for editing hcl configuration file
 (add-to-list 'auto-mode-alist '("\\.hcl\\'" . hcl-mode))
 
 (add-to-list 'auto-mode-alist '("\\.nomad\\'" . hcl-mode))
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hcl-mode" '("hcl-")))
 
 ;;;***
 
@@ -1130,7 +1142,7 @@ HTMLize dired-marked files.
 ;;;***
 
 ;;;### (autoloads nil "ido-completing-read+" "ido-completing-read+.el"
-;;;;;;  (23975 33179 342258 948000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ido-completing-read+.el
 
 (defvar ido-cr+-minibuffer-depth -1 "\
@@ -1201,16 +1213,22 @@ or call the function `ido-ubiquitous-mode'.")
 (autoload 'ido-ubiquitous-mode "ido-completing-read+" "\
 Use ido completion instead of standard completion almost everywhere.
 
+If called interactively, enable Ido-Ubiquitous mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 If this mode causes problems for a function, you can customize
 when ido completion is or is not used by customizing
 `ido-cr+-function-blacklist'.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ido-completing-read+" '("define-ido-internal-var" "ido-" "minibuf-eldef-update-minibuffer@ido-cr+-compat")))
+
 ;;;***
 
-;;;### (autoloads nil "lsp-mode" "lsp-mode.el" (23975 33179 346258
-;;;;;;  953000))
+;;;### (autoloads nil "lsp-mode" "lsp-mode.el" (0 0 0 0))
 ;;; Generated autoloads from lsp-mode.el
 
 (autoload 'lsp "lsp-mode" "\
@@ -1223,9 +1241,11 @@ such.
 
 \(fn &optional IGNORE-MULTI-FOLDER)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lsp-mode" '("lsp-" "make-lsp-client" "when-lsp-workspace" "with-lsp-workspace")))
+
 ;;;***
 
-;;;### (autoloads nil "lsp-ui" "lsp-ui.el" (23975 33179 346258 953000))
+;;;### (autoloads nil "lsp-ui" "lsp-ui.el" (0 0 0 0))
 ;;; Generated autoloads from lsp-ui.el
 
 (autoload 'lsp-ui-mode "lsp-ui" "\
@@ -1238,10 +1258,11 @@ omitted or nil, and toggle it if ARG is ‘toggle’.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lsp-ui" '("lsp-ui-")))
+
 ;;;***
 
-;;;### (autoloads nil "lua-mode" "lua-mode.el" (23975 33179 346258
-;;;;;;  953000))
+;;;### (autoloads nil "lua-mode" "lua-mode.el" (0 0 0 0))
 ;;; Generated autoloads from lua-mode.el
 
 (autoload 'lua-mode "lua-mode" "\
@@ -1262,9 +1283,11 @@ When called interactively, switch to the process buffer.
 
 \(fn &optional NAME PROGRAM STARTFILE &rest SWITCHES)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lua-mode" '("lua-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit" "magit.el" (23975 33179 354258 964000))
+;;;### (autoloads nil "magit" "magit.el" (0 0 0 0))
 ;;; Generated autoloads from magit.el
  (autoload 'magit-dispatch-popup "magit" nil t)
  (autoload 'magit-run-popup "magit" nil t)
@@ -1317,10 +1340,11 @@ and Emacs to it.
 
 \(fn &optional PRINT-DEST)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-apply" "magit-apply.el" (23975 33179
-;;;;;;  346258 953000))
+;;;### (autoloads nil "magit-apply" "magit-apply.el" (0 0 0 0))
 ;;; Generated autoloads from magit-apply.el
 
 (autoload 'magit-stage-file "magit-apply" "\
@@ -1349,15 +1373,17 @@ without requiring confirmation.
 \(fn FILE)" t nil)
 
 (autoload 'magit-unstage-all "magit-apply" "\
-Remove all changes from the staging area.
+Remove all changes from the staging area." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-apply" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-autorevert" "magit-autorevert.el" (23975
-;;;;;;  33179 346258 953000))
+;;;### (autoloads nil "magit-autorevert" "magit-autorevert.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from magit-autorevert.el
+
+(put 'magit-auto-revert-mode 'globalized-minor-mode t)
 
 (defvar magit-auto-revert-mode (and (not global-auto-revert-mode) (not noninteractive)) "\
 Non-nil if Magit-Auto-Revert mode is enabled.
@@ -1381,10 +1407,11 @@ See `auto-revert-mode' for more information on Auto-Revert mode.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-autorevert" '("auto-revert-buffer" "magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-bisect" "magit-bisect.el" (23975 33179
-;;;;;;  346258 953000))
+;;;### (autoloads nil "magit-bisect" "magit-bisect.el" (0 0 0 0))
 ;;; Generated autoloads from magit-bisect.el
  (autoload 'magit-bisect-popup "magit-bisect" nil t)
 
@@ -1399,30 +1426,22 @@ other actions from the bisect popup (\\<magit-status-mode-map>\\[magit-bisect-po
 \(fn BAD GOOD)" t nil)
 
 (autoload 'magit-bisect-reset "magit-bisect" "\
-After bisecting, cleanup bisection state and return to original `HEAD'.
-
-\(fn)" t nil)
+After bisecting, cleanup bisection state and return to original `HEAD'." t nil)
 
 (autoload 'magit-bisect-good "magit-bisect" "\
 While bisecting, mark the current commit as good.
 Use this after you have asserted that the commit does not contain
-the bug in question.
-
-\(fn)" t nil)
+the bug in question." t nil)
 
 (autoload 'magit-bisect-bad "magit-bisect" "\
 While bisecting, mark the current commit as bad.
 Use this after you have asserted that the commit does contain the
-bug in question.
-
-\(fn)" t nil)
+bug in question." t nil)
 
 (autoload 'magit-bisect-skip "magit-bisect" "\
 While bisecting, skip the current commit.
 Use this if for some reason the current commit is not a good one
-to test.  This command lets Git choose a different one.
-
-\(fn)" t nil)
+to test.  This command lets Git choose a different one." t nil)
 
 (autoload 'magit-bisect-run "magit-bisect" "\
 Bisect automatically by running commands after each step.
@@ -1433,40 +1452,35 @@ bisect run'.
 
 \(fn CMDLINE &optional BAD GOOD)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-bisect" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-blame" "magit-blame.el" (23975 33179
-;;;;;;  346258 953000))
+;;;### (autoloads nil "magit-blame" "magit-blame.el" (0 0 0 0))
 ;;; Generated autoloads from magit-blame.el
 
 (autoload 'magit-blame-echo "magit-blame" "\
 For each line show the revision in which it was added.
 Show the information about the chunk at point in the echo area
 when moving between chunks.  Unlike other blaming commands, do
-not turn on `read-only-mode'.
-
-\(fn)" t nil)
+not turn on `read-only-mode'." t nil)
 
 (autoload 'magit-blame-addition "magit-blame" "\
-For each line show the revision in which it was added.
-
-\(fn)" t nil)
+For each line show the revision in which it was added." t nil)
 
 (autoload 'magit-blame-removal "magit-blame" "\
-For each line show the revision in which it was removed.
-
-\(fn)" t nil)
+For each line show the revision in which it was removed." t nil)
 
 (autoload 'magit-blame-reverse "magit-blame" "\
-For each line show the last revision in which it still exists.
-
-\(fn)" t nil)
+For each line show the last revision in which it still exists." t nil)
  (autoload 'magit-blame-popup "magit-blame" nil t)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-blame" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-bookmark" "magit-bookmark.el" (23975
-;;;;;;  33179 346258 953000))
+;;;### (autoloads nil "magit-bookmark" "magit-bookmark.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from magit-bookmark.el
 
 (autoload 'magit-bookmark--status-jump "magit-bookmark" "\
@@ -1475,9 +1489,7 @@ Handle a Magit status BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--status-make-record "magit-bookmark" "\
-Create a Magit status bookmark.
-
-\(fn)" nil nil)
+Create a Magit status bookmark." nil nil)
 
 (autoload 'magit-bookmark--refs-jump "magit-bookmark" "\
 Handle a Magit refs BOOKMARK.
@@ -1485,9 +1497,7 @@ Handle a Magit refs BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--refs-make-record "magit-bookmark" "\
-Create a Magit refs bookmark.
-
-\(fn)" nil nil)
+Create a Magit refs bookmark." nil nil)
 
 (autoload 'magit-bookmark--log-jump "magit-bookmark" "\
 Handle a Magit log BOOKMARK.
@@ -1495,9 +1505,7 @@ Handle a Magit log BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--log-make-record "magit-bookmark" "\
-Create a Magit log bookmark.
-
-\(fn)" nil nil)
+Create a Magit log bookmark." nil nil)
 
 (autoload 'magit-bookmark--reflog-jump "magit-bookmark" "\
 Handle a Magit reflog BOOKMARK.
@@ -1505,9 +1513,7 @@ Handle a Magit reflog BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--reflog-make-record "magit-bookmark" "\
-Create a Magit reflog bookmark.
-
-\(fn)" nil nil)
+Create a Magit reflog bookmark." nil nil)
 
 (autoload 'magit-bookmark--stashes-jump "magit-bookmark" "\
 Handle a Magit stash list BOOKMARK.
@@ -1515,9 +1521,7 @@ Handle a Magit stash list BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--stashes-make-record "magit-bookmark" "\
-Create a Magit stash list bookmark.
-
-\(fn)" nil nil)
+Create a Magit stash list bookmark." nil nil)
 
 (autoload 'magit-bookmark--cherry-jump "magit-bookmark" "\
 Handle a Magit cherry BOOKMARK.
@@ -1525,9 +1529,7 @@ Handle a Magit cherry BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--cherry-make-record "magit-bookmark" "\
-Create a Magit cherry bookmark.
-
-\(fn)" nil nil)
+Create a Magit cherry bookmark." nil nil)
 
 (autoload 'magit-bookmark--diff-jump "magit-bookmark" "\
 Handle a Magit diff BOOKMARK.
@@ -1535,9 +1537,7 @@ Handle a Magit diff BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--diff-make-record "magit-bookmark" "\
-Create a Magit diff bookmark.
-
-\(fn)" nil nil)
+Create a Magit diff bookmark." nil nil)
 
 (autoload 'magit-bookmark--revision-jump "magit-bookmark" "\
 Handle a Magit revision BOOKMARK.
@@ -1545,9 +1545,7 @@ Handle a Magit revision BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--revision-make-record "magit-bookmark" "\
-Create a Magit revision bookmark.
-
-\(fn)" nil nil)
+Create a Magit revision bookmark." nil nil)
 
 (autoload 'magit-bookmark--stash-jump "magit-bookmark" "\
 Handle a Magit stash BOOKMARK.
@@ -1555,9 +1553,7 @@ Handle a Magit stash BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--stash-make-record "magit-bookmark" "\
-Create a Magit stash bookmark.
-
-\(fn)" nil nil)
+Create a Magit stash bookmark." nil nil)
 
 (autoload 'magit-bookmark--submodules-jump "magit-bookmark" "\
 Handle a Magit submodule list BOOKMARK.
@@ -1565,14 +1561,13 @@ Handle a Magit submodule list BOOKMARK.
 \(fn BOOKMARK)" nil nil)
 
 (autoload 'magit-bookmark--submodules-make-record "magit-bookmark" "\
-Create a Magit submodule list bookmark.
+Create a Magit submodule list bookmark." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-bookmark" '("magit-bookmark--")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-branch" "magit-branch.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-branch" "magit-branch.el" (0 0 0 0))
 ;;; Generated autoloads from magit-branch.el
  (autoload 'magit-branch-popup "magit" nil t)
 
@@ -1808,18 +1803,14 @@ by rebasing or by merging.  It can be overwritten using the Git
 variable `branch.<name>.rebase'.
 
 When `true' then pulling is done by rebasing.
-When `false' (the default) then pulling is done by merging.
-
-\(fn)" t nil)
+When `false' (the default) then pulling is done by merging." t nil)
 
 (autoload 'magit-cycle-remote\.pushDefault "magit-branch" "\
 Cycle the repository-local value of `remote.pushDefault'.
 
 The Git variable `remote.pushDefault' specifies the remote that
 local branches are usually pushed to.  It can be overwritten
-using the Git variable `branch.<name>.pushRemote'.
-
-\(fn)" t nil)
+using the Git variable `branch.<name>.pushRemote'." t nil)
 
 (autoload 'magit-cycle-branch*autoSetupMerge "magit-branch" "\
 Cycle the repository-local value of `branch.autoSetupMerge'.
@@ -1838,9 +1829,7 @@ When `true' (the default) then the variable are set when the
 starting point is a remote branch, but not when it is a local
 branch.
 
-When `false' then the variables are never set.
-
-\(fn)" t nil)
+When `false' then the variables are never set." t nil)
 
 (autoload 'magit-cycle-branch*autoSetupRebase "magit-branch" "\
 Cycle the repository-local value of `branch.autoSetupRebase'.
@@ -1858,14 +1847,13 @@ is a local branch, but not when it is a remote branch.
 When `remote' then the variable are set when the starting point
 is a remote branch, but not when it is a local branch.
 
-When `never' (the default) then the variable is never set.
+When `never' (the default) then the variable is never set." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-branch" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-clone" "magit-clone.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-clone" "magit-clone.el" (0 0 0 0))
 ;;; Generated autoloads from magit-clone.el
 
 (autoload 'magit-clone "magit-clone" "\
@@ -1874,10 +1862,11 @@ Then show the status buffer for the new repository.
 
 \(fn REPOSITORY DIRECTORY)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-clone" '("magit-clone-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-collab" "magit-collab.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-collab" "magit-collab.el" (0 0 0 0))
 ;;; Generated autoloads from magit-collab.el
 
 (autoload 'magit-browse-pull-request "magit-collab" "\
@@ -1888,10 +1877,11 @@ be lifted eventually to support other Git forges.
 
 \(fn PR)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-collab" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-commit" "magit-commit.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-commit" "magit-commit.el" (0 0 0 0))
 ;;; Generated autoloads from magit-commit.el
 
 (autoload 'magit-commit-create "magit-commit" "\
@@ -1983,10 +1973,11 @@ history element.
 \(fn DATE)" t nil)
  (autoload 'magit-commit-absorb-popup "magit-commit" nil t)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-commit" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-diff" "magit-diff.el" (23975 33179 350258
-;;;;;;  959000))
+;;;### (autoloads nil "magit-diff" "magit-diff.el" (0 0 0 0))
 ;;; Generated autoloads from magit-diff.el
 
 (autoload 'magit-diff-popup "magit-diff" "\
@@ -1999,9 +1990,7 @@ Popup console for diff commands.
 
 This is a variant of `magit-diff-popup' which shows the same popup
 but which limits the diff to the file being visited in the current
-buffer.
-
-\(fn)" t nil)
+buffer." t nil)
 
 (autoload 'magit-diff-dwim "magit-diff" "\
 Show changes for the thing at point.
@@ -2057,9 +2046,7 @@ be committed.
 \(fn &optional ARGS)" t nil)
 
 (autoload 'magit-diff-buffer-file "magit-diff" "\
-Show diff for the blob or file visited in the current buffer.
-
-\(fn)" t nil)
+Show diff for the blob or file visited in the current buffer." t nil)
 
 (autoload 'magit-diff-paths "magit-diff" "\
 Show changes between any two files on disk.
@@ -2073,10 +2060,11 @@ for a revision.
 
 \(fn REV &optional ARGS FILES MODULE)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-diff" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-ediff" "magit-ediff.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-ediff" "magit-ediff.el" (0 0 0 0))
 ;;; Generated autoloads from magit-ediff.el
  (autoload 'magit-ediff-popup "magit-ediff" nil t)
 
@@ -2119,9 +2107,7 @@ might only be able to guess either the file, or range or commit,
 in which case the user is asked about the other.  It might not
 always guess right, in which case the appropriate `magit-ediff-*'
 command has to be used explicitly.  If it cannot read the user's
-mind at all, then it asks the user for a command to run.
-
-\(fn)" t nil)
+mind at all, then it asks the user for a command to run." t nil)
 
 (autoload 'magit-ediff-show-staged "magit-ediff" "\
 Show staged changes using Ediff.
@@ -2162,16 +2148,15 @@ stash that were staged.
 
 \(fn STASH)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-ediff" '("magit-ediff-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-extras" "magit-extras.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-extras" "magit-extras.el" (0 0 0 0))
 ;;; Generated autoloads from magit-extras.el
 
 (autoload 'magit-run-git-gui "magit-extras" "\
-Run `git gui' for the current git repository.
-
-\(fn)" t nil)
+Run `git gui' for the current git repository." t nil)
 
 (autoload 'magit-run-git-gui-blame "magit-extras" "\
 Run `git gui blame' on the given FILENAME and COMMIT.
@@ -2183,19 +2168,13 @@ blame to center around the line point is on.
 \(fn COMMIT FILENAME &optional LINENUM)" t nil)
 
 (autoload 'magit-run-gitk "magit-extras" "\
-Run `gitk' in the current repository.
-
-\(fn)" t nil)
+Run `gitk' in the current repository." t nil)
 
 (autoload 'magit-run-gitk-branches "magit-extras" "\
-Run `gitk --branches' in the current repository.
-
-\(fn)" t nil)
+Run `gitk --branches' in the current repository." t nil)
 
 (autoload 'magit-run-gitk-all "magit-extras" "\
-Run `gitk --all' in the current repository.
-
-\(fn)" t nil)
+Run `gitk --all' in the current repository." t nil)
 
 (autoload 'ido-enter-magit-status "magit-extras" "\
 Drop into `magit-status' from file switching.
@@ -2216,9 +2195,7 @@ instead of every time Ido is invoked, so now you can modify it
 like pretty much every other keymap:
 
   (define-key ido-common-completion-map
-    (kbd \"C-x g\") \\='ido-enter-magit-status)
-
-\(fn)" t nil)
+    (kbd \"C-x g\") \\='ido-enter-magit-status)" t nil)
 
 (autoload 'magit-dired-jump "magit-extras" "\
 Visit file at point using Dired.
@@ -2358,9 +2335,7 @@ argument is used, then save the revision at its tip to the
 
 When the region is active, then save that to the `kill-ring',
 like `kill-ring-save' would, instead of behaving as described
-above.
-
-\(fn)" t nil)
+above." t nil)
 
 (autoload 'magit-copy-buffer-revision "magit-extras" "\
 Save the revision of the current buffer for later use.
@@ -2382,21 +2357,18 @@ the current section instead, using `magit-copy-section-value'.
 
 When the region is active, then save that to the `kill-ring',
 like `kill-ring-save' would, instead of behaving as described
-above.
-
-\(fn)" t nil)
+above." t nil)
 
 (autoload 'magit-abort-dwim "magit-extras" "\
 Abort current operation.
 Depending on the context, this will abort a merge, a rebase, a
-patch application, a cherry-pick, a revert, or a bisect.
+patch application, a cherry-pick, a revert, or a bisect." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-extras" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-fetch" "magit-fetch.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-fetch" "magit-fetch.el" (0 0 0 0))
 ;;; Generated autoloads from magit-fetch.el
  (autoload 'magit-fetch-popup "magit-fetch" nil t)
 
@@ -2433,14 +2405,10 @@ Fetch from all remotes.
 (autoload 'magit-fetch-all-prune "magit-fetch" "\
 Fetch from all remotes, and prune.
 Prune remote tracking branches for branches that have been
-removed on the respective remote.
-
-\(fn)" t nil)
+removed on the respective remote." t nil)
 
 (autoload 'magit-fetch-all-no-prune "magit-fetch" "\
-Fetch from all remotes.
-
-\(fn)" t nil)
+Fetch from all remotes." t nil)
 
 (autoload 'magit-fetch-modules "magit-fetch" "\
 Fetch all submodules.
@@ -2452,10 +2420,11 @@ prefix argument fetch all remotes.
 
 \(fn &optional ALL)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-fetch" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-files" "magit-files.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-files" "magit-files.el" (0 0 0 0))
 ;;; Generated autoloads from magit-files.el
 
 (autoload 'magit-find-file "magit-files" "\
@@ -2472,6 +2441,8 @@ existing one.
 
 \(fn REV FILE)" t nil)
  (autoload 'magit-file-popup "magit" nil t)
+
+(put 'global-magit-file-mode 'globalized-minor-mode t)
 
 (defvar global-magit-file-mode t "\
 Non-nil if Global Magit-File mode is enabled.
@@ -2500,10 +2471,12 @@ Checkout FILE from REV.
 
 \(fn REV FILE)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-files" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-gitignore" "magit-gitignore.el" (23975
-;;;;;;  33179 350258 959000))
+;;;### (autoloads nil "magit-gitignore" "magit-gitignore.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from magit-gitignore.el
  (autoload 'magit-gitignore-popup "magit-gitignore" nil t)
 
@@ -2517,127 +2490,99 @@ Instruct Git to locally ignore FILE-OR-PATTERN.
 
 \(fn FILE-OR-PATTERN)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-gitignore" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-imenu" "magit-imenu.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-imenu" "magit-imenu.el" (0 0 0 0))
 ;;; Generated autoloads from magit-imenu.el
 
 (autoload 'magit-imenu--log-prev-index-position-function "magit-imenu" "\
 Move point to previous line in current buffer.
 This function is used as a value for
-`imenu-prev-index-position-function'.
-
-\(fn)" nil nil)
+`imenu-prev-index-position-function'." nil nil)
 
 (autoload 'magit-imenu--log-extract-index-name-function "magit-imenu" "\
 Return imenu name for line at point.
 This function is used as a value for
 `imenu-extract-index-name-function'.  Point should be at the
-beginning of the line.
-
-\(fn)" nil nil)
+beginning of the line." nil nil)
 
 (autoload 'magit-imenu--diff-prev-index-position-function "magit-imenu" "\
 Move point to previous file line in current buffer.
 This function is used as a value for
-`imenu-prev-index-position-function'.
-
-\(fn)" nil nil)
+`imenu-prev-index-position-function'." nil nil)
 
 (autoload 'magit-imenu--diff-extract-index-name-function "magit-imenu" "\
 Return imenu name for line at point.
 This function is used as a value for
 `imenu-extract-index-name-function'.  Point should be at the
-beginning of the line.
-
-\(fn)" nil nil)
+beginning of the line." nil nil)
 
 (autoload 'magit-imenu--status-create-index-function "magit-imenu" "\
 Return an alist of all imenu entries in current buffer.
 This function is used as a value for
-`imenu-create-index-function'.
-
-\(fn)" nil nil)
+`imenu-create-index-function'." nil nil)
 
 (autoload 'magit-imenu--refs-create-index-function "magit-imenu" "\
 Return an alist of all imenu entries in current buffer.
 This function is used as a value for
-`imenu-create-index-function'.
-
-\(fn)" nil nil)
+`imenu-create-index-function'." nil nil)
 
 (autoload 'magit-imenu--cherry-create-index-function "magit-imenu" "\
 Return an alist of all imenu entries in current buffer.
 This function is used as a value for
-`imenu-create-index-function'.
-
-\(fn)" nil nil)
+`imenu-create-index-function'." nil nil)
 
 (autoload 'magit-imenu--submodule-prev-index-position-function "magit-imenu" "\
 Move point to previous line in magit-submodule-list buffer.
 This function is used as a value for
-`imenu-prev-index-position-function'.
-
-\(fn)" nil nil)
+`imenu-prev-index-position-function'." nil nil)
 
 (autoload 'magit-imenu--submodule-extract-index-name-function "magit-imenu" "\
 Return imenu name for line at point.
 This function is used as a value for
 `imenu-extract-index-name-function'.  Point should be at the
-beginning of the line.
-
-\(fn)" nil nil)
+beginning of the line." nil nil)
 
 (autoload 'magit-imenu--repolist-prev-index-position-function "magit-imenu" "\
 Move point to previous line in magit-repolist buffer.
 This function is used as a value for
-`imenu-prev-index-position-function'.
-
-\(fn)" nil nil)
+`imenu-prev-index-position-function'." nil nil)
 
 (autoload 'magit-imenu--repolist-extract-index-name-function "magit-imenu" "\
 Return imenu name for line at point.
 This function is used as a value for
 `imenu-extract-index-name-function'.  Point should be at the
-beginning of the line.
-
-\(fn)" nil nil)
+beginning of the line." nil nil)
 
 (autoload 'magit-imenu--process-prev-index-position-function "magit-imenu" "\
 Move point to previous process in magit-process buffer.
 This function is used as a value for
-`imenu-prev-index-position-function'.
-
-\(fn)" nil nil)
+`imenu-prev-index-position-function'." nil nil)
 
 (autoload 'magit-imenu--process-extract-index-name-function "magit-imenu" "\
 Return imenu name for line at point.
 This function is used as a value for
 `imenu-extract-index-name-function'.  Point should be at the
-beginning of the line.
-
-\(fn)" nil nil)
+beginning of the line." nil nil)
 
 (autoload 'magit-imenu--rebase-prev-index-position-function "magit-imenu" "\
 Move point to previous commit in git-rebase buffer.
 This function is used as a value for
-`imenu-prev-index-position-function'.
-
-\(fn)" nil nil)
+`imenu-prev-index-position-function'." nil nil)
 
 (autoload 'magit-imenu--rebase-extract-index-name-function "magit-imenu" "\
 Return imenu name for line at point.
 This function is used as a value for
 `imenu-extract-index-name-function'.  Point should be at the
-beginning of the line.
+beginning of the line." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-imenu" '("magit-imenu--index-function")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-log" "magit-log.el" (23975 33179 350258
-;;;;;;  959000))
+;;;### (autoloads nil "magit-log" "magit-log.el" (0 0 0 0))
 ;;; Generated autoloads from magit-log.el
 
 (autoload 'magit-log-buffer-file-popup "magit-log" "\
@@ -2645,9 +2590,7 @@ Popup console for log commands.
 
 This is a variant of `magit-log-popup' which shows the same popup
 but which limits the log to the file being visited in the current
-buffer.
-
-\(fn)" t nil)
+buffer." t nil)
 
 (autoload 'magit-log-current "magit-log" "\
 Show log for the current branch.
@@ -2732,10 +2675,11 @@ Show commits in a branch that are not merged in the upstream branch.
 
 \(fn HEAD UPSTREAM)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-log" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-merge" "magit-merge.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-merge" "magit-merge.el" (0 0 0 0))
 ;;; Generated autoloads from magit-merge.el
  (autoload 'magit-merge-popup "magit" nil t)
 
@@ -2809,21 +2753,21 @@ Preview result of merging REV into the current branch.
 (autoload 'magit-merge-abort "magit-merge" "\
 Abort the current merge operation.
 
-\(git merge --abort)
+\(git merge --abort)" t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-merge" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-notes" "magit-notes.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-notes" "magit-notes.el" (0 0 0 0))
 ;;; Generated autoloads from magit-notes.el
  (autoload 'magit-notes-popup "magit" nil t)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-notes" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-patch" "magit-patch.el" (23975 33179
-;;;;;;  350258 959000))
+;;;### (autoloads nil "magit-patch" "magit-patch.el" (0 0 0 0))
 ;;; Generated autoloads from magit-patch.el
  (autoload 'magit-patch-popup "magit-patch" nil t)
 
@@ -2877,10 +2821,11 @@ same differences as those shown in the buffer are always used.
 
 \(fn FILE &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-patch" '("magit-patch-save-arguments")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-pull" "magit-pull.el" (23975 33179 354258
-;;;;;;  964000))
+;;;### (autoloads nil "magit-pull" "magit-pull.el" (0 0 0 0))
 ;;; Generated autoloads from magit-pull.el
  (autoload 'magit-pull-popup "magit-pull" nil t)
  (autoload 'magit-pull-and-fetch-popup "magit-pull" nil t)
@@ -2900,10 +2845,11 @@ Pull from a branch read in the minibuffer.
 
 \(fn SOURCE ARGS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-pull" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-push" "magit-push.el" (23975 33179 354258
-;;;;;;  964000))
+;;;### (autoloads nil "magit-push" "magit-push.el" (0 0 0 0))
 ;;; Generated autoloads from magit-push.el
  (autoload 'magit-push-popup "magit-push" nil t)
 
@@ -3011,10 +2957,11 @@ To add this command to the push popup add this to your init file:
 
 \(fn REMOTE ARGS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-push" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-refs" "magit-refs.el" (23975 33179 354258
-;;;;;;  964000))
+;;;### (autoloads nil "magit-refs" "magit-refs.el" (0 0 0 0))
 ;;; Generated autoloads from magit-refs.el
 
 (autoload 'magit-show-refs-popup "magit-refs" "\
@@ -3041,10 +2988,11 @@ Refs are compared with a branch read from the user.
 
 \(fn &optional REF ARGS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-refs" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-remote" "magit-remote.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-remote" "magit-remote.el" (0 0 0 0))
 ;;; Generated autoloads from magit-remote.el
  (autoload 'magit-remote-popup "magit-remote" nil t)
 
@@ -3104,24 +3052,24 @@ Popup console for setting remote variables.
 
 \(fn REMOTE)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-remote" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-repos" "magit-repos.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-repos" "magit-repos.el" (0 0 0 0))
 ;;; Generated autoloads from magit-repos.el
 
 (autoload 'magit-list-repositories "magit-repos" "\
 Display a list of repositories.
 
 Use the options `magit-repository-directories' to control which
-repositories are displayed.
+repositories are displayed." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-repos" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-reset" "magit-reset.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-reset" "magit-reset.el" (0 0 0 0))
 ;;; Generated autoloads from magit-reset.el
  (autoload 'magit-reset-popup "magit" nil t)
 
@@ -3169,27 +3117,23 @@ With a prefix argument reset the working tree otherwise don't.
 
 \(fn COMMIT &optional HARD)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-reset" '("magit-reset-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-sequence" "magit-sequence.el" (23975
-;;;;;;  33179 354258 964000))
+;;;### (autoloads nil "magit-sequence" "magit-sequence.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from magit-sequence.el
 
 (autoload 'magit-sequencer-continue "magit-sequence" "\
-Resume the current cherry-pick or revert sequence.
-
-\(fn)" t nil)
+Resume the current cherry-pick or revert sequence." t nil)
 
 (autoload 'magit-sequencer-skip "magit-sequence" "\
-Skip the stopped at commit during a cherry-pick or revert sequence.
-
-\(fn)" t nil)
+Skip the stopped at commit during a cherry-pick or revert sequence." t nil)
 
 (autoload 'magit-sequencer-abort "magit-sequence" "\
 Abort the current cherry-pick or revert sequence.
-This discards all changes made since the sequence started.
-
-\(fn)" t nil)
+This discards all changes made since the sequence started." t nil)
  (autoload 'magit-cherry-pick-popup "magit-sequence" nil t)
 
 (autoload 'magit-cherry-copy "magit-sequence" "\
@@ -3269,20 +3213,14 @@ Apply the patches from MAILDIR.
 \(fn &optional MAILDIR ARGS)" t nil)
 
 (autoload 'magit-am-continue "magit-sequence" "\
-Resume the current patch applying sequence.
-
-\(fn)" t nil)
+Resume the current patch applying sequence." t nil)
 
 (autoload 'magit-am-skip "magit-sequence" "\
-Skip the stopped at patch during a patch applying sequence.
-
-\(fn)" t nil)
+Skip the stopped at patch during a patch applying sequence." t nil)
 
 (autoload 'magit-am-abort "magit-sequence" "\
 Abort the current patch applying sequence.
-This discards all changes made since the sequence started.
-
-\(fn)" t nil)
+This discards all changes made since the sequence started." t nil)
  (autoload 'magit-rebase-popup "magit-sequence" nil t)
 
 (autoload 'magit-rebase-onto-pushremote "magit-sequence" "\
@@ -3343,24 +3281,19 @@ edit.  With a prefix argument the old message is reused as-is.
 \(fn &optional NOEDIT)" t nil)
 
 (autoload 'magit-rebase-skip "magit-sequence" "\
-Skip the current commit and restart the current rebase operation.
-
-\(fn)" t nil)
+Skip the current commit and restart the current rebase operation." t nil)
 
 (autoload 'magit-rebase-edit "magit-sequence" "\
-Edit the todo list of the current rebase operation.
-
-\(fn)" t nil)
+Edit the todo list of the current rebase operation." t nil)
 
 (autoload 'magit-rebase-abort "magit-sequence" "\
-Abort the current rebase operation, restoring the original branch.
+Abort the current rebase operation, restoring the original branch." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-sequence" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-stash" "magit-stash.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-stash" "magit-stash.el" (0 0 0 0))
 ;;; Generated autoloads from magit-stash.el
  (autoload 'magit-stash-popup "magit-stash" nil t)
 
@@ -3407,9 +3340,7 @@ while two prefix arguments are equivalent to `--all'.
 
 (autoload 'magit-snapshot-index "magit-stash" "\
 Create a snapshot of the index only.
-Unstaged and untracked changes are not stashed.
-
-\(fn)" t nil)
+Unstaged and untracked changes are not stashed." t nil)
 
 (autoload 'magit-snapshot-worktree "magit-stash" "\
 Create a snapshot of unstaged changes in the working tree.
@@ -3455,19 +3386,18 @@ Create a patch from STASH
 \(fn STASH)" t nil)
 
 (autoload 'magit-stash-list "magit-stash" "\
-List all stashes in a buffer.
-
-\(fn)" t nil)
+List all stashes in a buffer." t nil)
 
 (autoload 'magit-stash-show "magit-stash" "\
 Show all diffs of a stash in a buffer.
 
 \(fn STASH &optional ARGS FILES)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-stash" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-status" "magit-status.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-status" "magit-status.el" (0 0 0 0))
 ;;; Generated autoloads from magit-status.el
 
 (autoload 'magit-init "magit-status" "\
@@ -3496,10 +3426,12 @@ then offer to initialize it as a new repository.
 
 \(fn DIRECTORY)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-status" '("magit")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-submodule" "magit-submodule.el" (23975
-;;;;;;  33179 354258 964000))
+;;;### (autoloads nil "magit-submodule" "magit-submodule.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from magit-submodule.el
  (autoload 'magit-submodule-popup "magit-submodule" nil t)
 
@@ -3588,50 +3520,37 @@ to recover from making a mistake here, but don't count on it.
 Insert submodule sections.
 Hook `magit-module-sections-hook' controls which module sections
 are inserted, and option `magit-module-sections-nested' controls
-whether they are wrapped in an additional section.
-
-\(fn)" nil nil)
+whether they are wrapped in an additional section." nil nil)
 
 (autoload 'magit-insert-modules-overview "magit-submodule" "\
 Insert sections for all modules.
 For each section insert the path and the output of `git describe --tags',
-or, failing that, the abbreviated HEAD commit hash.
-
-\(fn)" nil nil)
+or, failing that, the abbreviated HEAD commit hash." nil nil)
 
 (autoload 'magit-insert-modules-unpulled-from-upstream "magit-submodule" "\
 Insert sections for modules that haven't been pulled from the upstream.
-These sections can be expanded to show the respective commits.
-
-\(fn)" nil nil)
+These sections can be expanded to show the respective commits." nil nil)
 
 (autoload 'magit-insert-modules-unpulled-from-pushremote "magit-submodule" "\
 Insert sections for modules that haven't been pulled from the push-remote.
-These sections can be expanded to show the respective commits.
-
-\(fn)" nil nil)
+These sections can be expanded to show the respective commits." nil nil)
 
 (autoload 'magit-insert-modules-unpushed-to-upstream "magit-submodule" "\
 Insert sections for modules that haven't been pushed to the upstream.
-These sections can be expanded to show the respective commits.
-
-\(fn)" nil nil)
+These sections can be expanded to show the respective commits." nil nil)
 
 (autoload 'magit-insert-modules-unpushed-to-pushremote "magit-submodule" "\
 Insert sections for modules that haven't been pushed to the push-remote.
-These sections can be expanded to show the respective commits.
-
-\(fn)" nil nil)
+These sections can be expanded to show the respective commits." nil nil)
 
 (autoload 'magit-list-submodules "magit-submodule" "\
-Display a list of the current repository's submodules.
+Display a list of the current repository's submodules." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-submodule" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-subtree" "magit-subtree.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-subtree" "magit-subtree.el" (0 0 0 0))
 ;;; Generated autoloads from magit-subtree.el
  (autoload 'magit-subtree-popup "magit-subtree" nil t)
 
@@ -3665,10 +3584,11 @@ Extract the history of the subtree PREFIX.
 
 \(fn PREFIX COMMIT ARGS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-subtree" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-tag" "magit-tag.el" (23975 33179 354258
-;;;;;;  964000))
+;;;### (autoloads nil "magit-tag" "magit-tag.el" (0 0 0 0))
 ;;; Generated autoloads from magit-tag.el
  (autoload 'magit-tag-popup "magit" nil t)
 
@@ -3712,15 +3632,12 @@ the tag popup by default.
 
 ;;;***
 
-;;;### (autoloads nil "magit-utils" "magit-utils.el" (23975 33179
-;;;;;;  354258 964000))
+;;;### (autoloads nil "magit-utils" "magit-utils.el" (0 0 0 0))
 ;;; Generated autoloads from magit-utils.el
 
 (autoload 'magit-emacs-Q-command "magit-utils" "\
 Show a shell command that runs an uncustomized Emacs with only Magit loaded.
-See info node `(magit)Debugging Tools' for more information.
-
-\(fn)" t nil)
+See info node `(magit)Debugging Tools' for more information." t nil)
 
 (autoload 'Info-follow-nearest-node--magit-gitman "magit-utils" "\
 
@@ -3736,11 +3653,14 @@ See info node `(magit)Debugging Tools' for more information.
 
 (advice-add 'org-man-export :around 'org-man-export--magit-gitman)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-utils" '("magit-" "whitespace-dont-turn-on-in-magit-mode")))
+
 ;;;***
 
-;;;### (autoloads nil "magit-wip" "magit-wip.el" (23975 33179 354258
-;;;;;;  964000))
+;;;### (autoloads nil "magit-wip" "magit-wip.el" (0 0 0 0))
 ;;; Generated autoloads from magit-wip.el
+
+(put 'magit-wip-after-save-mode 'globalized-minor-mode t)
 
 (defvar magit-wip-after-save-mode nil "\
 Non-nil if Magit-Wip-After-Save mode is enabled.
@@ -3774,6 +3694,11 @@ for a description of this minor mode.")
 (autoload 'magit-wip-after-apply-mode "magit-wip" "\
 Commit to work-in-progress refs.
 
+If called interactively, enable Magit-Wip-After-Apply mode if ARG
+is positive, and disable it if ARG is zero or negative.  If
+called from Lisp, also enable the mode if ARG is omitted or nil,
+and toggle it if ARG is `toggle'; disable the mode otherwise.
+
 After applying a change using any \"apply variant\"
 command (apply, stage, unstage, discard, and reverse) commit the
 affected files to the current wip refs.  For each branch there
@@ -3792,6 +3717,11 @@ for a description of this minor mode.")
 
 (autoload 'magit-wip-before-change-mode "magit-wip" "\
 Commit to work-in-progress refs before certain destructive changes.
+
+If called interactively, enable Magit-Wip-Before-Change mode if
+ARG is positive, and disable it if ARG is zero or negative.  If
+called from Lisp, also enable the mode if ARG is omitted or nil,
+and toggle it if ARG is `toggle'; disable the mode otherwise.
 
 Before invoking a revert command or an \"apply variant\"
 command (apply, stage, unstage, discard, and reverse) commit the
@@ -3819,14 +3749,14 @@ modes, instead of in a backup file as `backup-buffer' would.
 This function ignores the variables that affect `backup-buffer'
 and can be used along-side that function, which is recommended
 because this function only backs up files that are tracked in
-a Git repository.
+a Git repository." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-wip" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil "magit-worktree" "magit-worktree.el" (23975
-;;;;;;  33179 354258 964000))
+;;;### (autoloads nil "magit-worktree" "magit-worktree.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from magit-worktree.el
  (autoload 'magit-worktree-popup "magit-worktree" nil t)
 
@@ -3840,10 +3770,11 @@ Create a new BRANCH and check it out in a new worktree at PATH.
 
 \(fn PATH BRANCH START-POINT &optional FORCE)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-worktree" '("magit-")))
+
 ;;;***
 
-;;;### (autoloads nil "markdown-mode" "markdown-mode.el" (23975 33179
-;;;;;;  358258 970000))
+;;;### (autoloads nil "markdown-mode" "markdown-mode.el" (0 0 0 0))
 ;;; Generated autoloads from markdown-mode.el
 
 (autoload 'markdown-mode "markdown-mode" "\
@@ -3873,18 +3804,32 @@ Major mode for viewing GitHub Flavored Markdown content.
 (autoload 'markdown-live-preview-mode "markdown-mode" "\
 Toggle native previewing on save for a specific markdown file.
 
+If called interactively, enable Markdown-Live-Preview mode if ARG
+is positive, and disable it if ARG is zero or negative.  If
+called from Lisp, also enable the mode if ARG is omitted or nil,
+and toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "markdown-mode" '("defun-markdown-" "gfm-" "markdown")))
 
 ;;;***
 
 ;;;### (autoloads nil "org-hugo-auto-export-mode" "org-hugo-auto-export-mode.el"
-;;;;;;  (23975 33352 766228 509000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from org-hugo-auto-export-mode.el
 
 (autoload 'org-hugo-auto-export-mode "org-hugo-auto-export-mode" "\
 Toggle auto exporting the Org file using `ox-hugo'.
 
+If called interactively, enable Org-Hugo-Auto-Export mode if ARG
+is positive, and disable it if ARG is zero or negative.  If
+called from Lisp, also enable the mode if ARG is omitted or nil,
+and toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-hugo-auto-export-mode" '("org-hugo-export-wim-to-md-after-save")))
 
 ;;;***
 
@@ -4022,8 +3967,8 @@ Search for a string within all future entries.
 
 ;;;***
 
-;;;### (autoloads nil "ox-blackfriday" "ox-blackfriday.el" (23975
-;;;;;;  33352 766228 509000))
+;;;### (autoloads nil "ox-blackfriday" "ox-blackfriday.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from ox-blackfriday.el
 
 (autoload 'org-blackfriday-export-as-markdown "ox-blackfriday" "\
@@ -4057,9 +4002,7 @@ The text is assumed to be in Org mode format.
 
 This can be used in any buffer.  For example, you can write an
 itemized list in Org mode syntax in a Markdown buffer and use
-this command to convert it.
-
-\(fn)" t nil)
+this command to convert it." t nil)
 
 (autoload 'org-blackfriday-export-to-markdown "ox-blackfriday" "\
 Export current buffer to a Github Flavored Markdown file.
@@ -4095,10 +4038,11 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-blackfriday" '("org-blackfriday-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-hugo" "ox-hugo.el" (23975 33352 770228
-;;;;;;  503000))
+;;;### (autoloads nil "ox-hugo" "ox-hugo.el" (0 0 0 0))
 ;;; Generated autoloads from ox-hugo.el
  (put 'org-hugo-section 'safe-local-variable 'stringp)
  (put 'org-hugo-front-matter-format 'safe-local-variable 'stringp)
@@ -4245,14 +4189,13 @@ The optional argument NOERROR is passed to
 Get Emacs, Org and Hugo version and ox-hugo customization info.
 The information is converted to Markdown format and copied to the
 kill ring.  The same information is displayed in the Messages
-buffer and returned as a string in Org format.
+buffer and returned as a string in Org format." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-hugo" '("org-hugo-")))
 
 ;;;***
 
-;;;### (autoloads nil "perspective" "perspective.el" (23975 33179
-;;;;;;  358258 970000))
+;;;### (autoloads nil "perspective" "perspective.el" (0 0 0 0))
 ;;; Generated autoloads from perspective.el
 
 (defvar persp-mode nil "\
@@ -4270,12 +4213,18 @@ Toggle perspective mode.
 When active, keeps track of multiple 'perspectives',
 named collections of buffers and window configurations.
 
+If called interactively, enable Persp mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "perspective" '("check-persp" "make-persp" "persp" "quick-perspective-keys" "with-perspective")))
 
 ;;;***
 
-;;;### (autoloads nil "projectile" "projectile.el" (23975 33179 358258
-;;;;;;  970000))
+;;;### (autoloads nil "projectile" "projectile.el" (0 0 0 0))
 ;;; Generated autoloads from projectile.el
 
 (autoload 'projectile-version "projectile" "\
@@ -4312,9 +4261,7 @@ Purge DIR from the cache of the current project.
 \(fn DIR)" t nil)
 
 (autoload 'projectile-cache-current-file "projectile" "\
-Add the currently visited file to the cache.
-
-\(fn)" t nil)
+Add the currently visited file to the cache." t nil)
 
 (autoload 'projectile-discover-projects-in-directory "projectile" "\
 Discover any projects in DIRECTORY and add them to the projectile cache.
@@ -4325,35 +4272,23 @@ at the top level of DIRECTORY.
 
 (autoload 'projectile-discover-projects-in-search-path "projectile" "\
 Discover projects in `projectile-project-search-path'.
-Invoked automatically when `projectile-mode' is enabled.
-
-\(fn)" t nil)
+Invoked automatically when `projectile-mode' is enabled." t nil)
 
 (autoload 'projectile-switch-to-buffer "projectile" "\
-Switch to a project buffer.
-
-\(fn)" t nil)
+Switch to a project buffer." t nil)
 
 (autoload 'projectile-switch-to-buffer-other-window "projectile" "\
-Switch to a project buffer and show it in another window.
-
-\(fn)" t nil)
+Switch to a project buffer and show it in another window." t nil)
 
 (autoload 'projectile-switch-to-buffer-other-frame "projectile" "\
-Switch to a project buffer and show it in another window.
-
-\(fn)" t nil)
+Switch to a project buffer and show it in another window." t nil)
 
 (autoload 'projectile-display-buffer "projectile" "\
-Display a project buffer in another window without selecting it.
-
-\(fn)" t nil)
+Display a project buffer in another window without selecting it." t nil)
 
 (autoload 'projectile-project-buffers-other-buffer "projectile" "\
 Switch to the most recently selected buffer project buffer.
-Only buffers not visible in windows are returned.
-
-\(fn)" t nil)
+Only buffers not visible in windows are returned." t nil)
 
 (autoload 'projectile-multi-occur "projectile" "\
 Do a `multi-occur' in the project's buffers.
@@ -4483,9 +4418,7 @@ With a prefix arg INVALIDATE-CACHE invalidates the cache first.
 \(fn &optional INVALIDATE-CACHE)" t nil)
 
 (autoload 'projectile-toggle-project-read-only "projectile" "\
-Toggle project read only.
-
-\(fn)" t nil)
+Toggle project read only." t nil)
 
 (autoload 'projectile-find-dir "projectile" "\
 Jump to a project's directory using completion.
@@ -4516,24 +4449,16 @@ With a prefix arg INVALIDATE-CACHE invalidates the cache first.
 \(fn &optional INVALIDATE-CACHE)" t nil)
 
 (autoload 'projectile-project-info "projectile" "\
-Display info for current project.
-
-\(fn)" t nil)
+Display info for current project." t nil)
 
 (autoload 'projectile-find-implementation-or-test-other-window "projectile" "\
-Open matching implementation or test file in other window.
-
-\(fn)" t nil)
+Open matching implementation or test file in other window." t nil)
 
 (autoload 'projectile-find-implementation-or-test-other-frame "projectile" "\
-Open matching implementation or test file in other frame.
-
-\(fn)" t nil)
+Open matching implementation or test file in other frame." t nil)
 
 (autoload 'projectile-toggle-between-implementation-and-test "projectile" "\
-Toggle between an implementation file and its test file.
-
-\(fn)" t nil)
+Toggle between an implementation file and its test file." t nil)
 
 (autoload 'projectile-grep "projectile" "\
 Perform rgrep in the project.
@@ -4562,50 +4487,34 @@ SEARCH-TERM is a regexp.
 \(fn SEARCH-TERM)" t nil)
 
 (autoload 'projectile-regenerate-tags "projectile" "\
-Regenerate the project's [e|g]tags.
-
-\(fn)" t nil)
+Regenerate the project's [e|g]tags." t nil)
 
 (autoload 'projectile-find-tag "projectile" "\
-Find tag in project.
-
-\(fn)" t nil)
+Find tag in project." t nil)
 
 (autoload 'projectile-run-command-in-root "projectile" "\
-Invoke `execute-extended-command' in the project's root.
-
-\(fn)" t nil)
+Invoke `execute-extended-command' in the project's root." t nil)
 
 (autoload 'projectile-run-shell-command-in-root "projectile" "\
-Invoke `shell-command' in the project's root.
-
-\(fn)" t nil)
+Invoke `shell-command' in the project's root." t nil)
 
 (autoload 'projectile-run-async-shell-command-in-root "projectile" "\
-Invoke `async-shell-command' in the project's root.
-
-\(fn)" t nil)
+Invoke `async-shell-command' in the project's root." t nil)
 
 (autoload 'projectile-run-shell "projectile" "\
 Invoke `shell' in the project's root.
 
-Switch to the project specific shell buffer if it already exists.
-
-\(fn)" t nil)
+Switch to the project specific shell buffer if it already exists." t nil)
 
 (autoload 'projectile-run-eshell "projectile" "\
 Invoke `eshell' in the project's root.
 
-Switch to the project specific eshell buffer if it already exists.
-
-\(fn)" t nil)
+Switch to the project specific eshell buffer if it already exists." t nil)
 
 (autoload 'projectile-run-ielm "projectile" "\
 Invoke `ielm' in the project's root.
 
-Switch to the project specific ielm buffer if it already exists.
-
-\(fn)" t nil)
+Switch to the project specific ielm buffer if it already exists." t nil)
 
 (autoload 'projectile-run-term "projectile" "\
 Invoke `term' in the project's root.
@@ -4634,29 +4543,19 @@ to run the replacement.
 Kill project buffers.
 
 The buffer are killed according to the value of
-`projectile-kill-buffers-filter'.
-
-\(fn)" t nil)
+`projectile-kill-buffers-filter'." t nil)
 
 (autoload 'projectile-save-project-buffers "projectile" "\
-Save all project buffers.
-
-\(fn)" t nil)
+Save all project buffers." t nil)
 
 (autoload 'projectile-dired "projectile" "\
-Open `dired' at the root of the project.
-
-\(fn)" t nil)
+Open `dired' at the root of the project." t nil)
 
 (autoload 'projectile-dired-other-window "projectile" "\
-Open `dired'  at the root of the project in another window.
-
-\(fn)" t nil)
+Open `dired'  at the root of the project in another window." t nil)
 
 (autoload 'projectile-dired-other-frame "projectile" "\
-Open `dired' at the root of the project in another frame.
-
-\(fn)" t nil)
+Open `dired' at the root of the project in another frame." t nil)
 
 (autoload 'projectile-vc "projectile" "\
 Open `vc-dir' at the root of the project.
@@ -4672,9 +4571,7 @@ directory to open.
 \(fn &optional PROJECT-ROOT)" t nil)
 
 (autoload 'projectile-recentf "projectile" "\
-Show a list of recently visited files in a project.
-
-\(fn)" t nil)
+Show a list of recently visited files in a project." t nil)
 
 (autoload 'projectile-configure-project "projectile" "\
 Run project configure command.
@@ -4747,19 +4644,13 @@ This command will first prompt for the directory the file is in.
 \(fn &optional DIRECTORY)" t nil)
 
 (autoload 'projectile-find-file-in-known-projects "projectile" "\
-Jump to a file in any of the known projects.
-
-\(fn)" t nil)
+Jump to a file in any of the known projects." t nil)
 
 (autoload 'projectile-cleanup-known-projects "projectile" "\
-Remove known projects that don't exist anymore.
-
-\(fn)" t nil)
+Remove known projects that don't exist anymore." t nil)
 
 (autoload 'projectile-clear-known-projects "projectile" "\
-Clear both `projectile-known-projects' and `projectile-known-projects-file'.
-
-\(fn)" t nil)
+Clear both `projectile-known-projects' and `projectile-known-projects-file'." t nil)
 
 (autoload 'projectile-remove-known-project "projectile" "\
 Remove PROJECT from the list of known projects.
@@ -4767,9 +4658,7 @@ Remove PROJECT from the list of known projects.
 \(fn &optional PROJECT)" t nil)
 
 (autoload 'projectile-remove-current-project-from-known-projects "projectile" "\
-Remove the current project from the list of known projects.
-
-\(fn)" t nil)
+Remove the current project from the list of known projects." t nil)
 
 (autoload 'projectile-ibuffer "projectile" "\
 Open an IBuffer window showing all buffers in the current project.
@@ -4784,9 +4673,7 @@ The user is prompted for a single character indicating the action to invoke.
 The `?' character describes then
 available actions.
 
-See `def-projectile-commander-method' for defining new methods.
-
-\(fn)" t nil)
+See `def-projectile-commander-method' for defining new methods." t nil)
 
 (autoload 'projectile-browse-dirty-projects "projectile" "\
 Browse dirty version controlled projects.
@@ -4797,9 +4684,7 @@ dirty project list.
 \(fn &optional CACHED)" t nil)
 
 (autoload 'projectile-edit-dir-locals "projectile" "\
-Edit or create a .dir-locals.el file of the project.
-
-\(fn)" t nil)
+Edit or create a .dir-locals.el file of the project." t nil)
 
 (defvar projectile-mode nil "\
 Non-nil if Projectile mode is enabled.
@@ -4828,51 +4713,49 @@ Otherwise behave as if called interactively.
 
 (define-obsolete-function-alias 'projectile-global-mode 'projectile-mode "1.0")
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "projectile" '("??" "compilation-find-file-projectile-find-compilation-buffer" "def-projectile-commander-method" "delete-file-projectile-remove-from-cache" "projectile-")))
+
 ;;;***
 
 ;;;### (autoloads nil "rainbow-delimiters" "rainbow-delimiters.el"
-;;;;;;  (23975 33179 358258 970000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from rainbow-delimiters.el
 
 (autoload 'rainbow-delimiters-mode "rainbow-delimiters" "\
 Highlight nested parentheses, brackets, and braces according to their depth.
 
+If called interactively, enable Rainbow-Delimiters mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (autoload 'rainbow-delimiters-mode-enable "rainbow-delimiters" "\
-Enable `rainbow-delimiters-mode'.
-
-\(fn)" nil nil)
+Enable `rainbow-delimiters-mode'." nil nil)
 
 (autoload 'rainbow-delimiters-mode-disable "rainbow-delimiters" "\
-Disable `rainbow-delimiters-mode'.
+Disable `rainbow-delimiters-mode'." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rainbow-delimiters" '("rainbow-delimiters-")))
 
 ;;;***
 
-;;;### (autoloads nil "smex" "smex.el" (23975 33179 358258 970000))
+;;;### (autoloads nil "smex" "smex.el" (0 0 0 0))
 ;;; Generated autoloads from smex.el
 
-(autoload 'smex "smex" "\
-
-
-\(fn)" t nil)
+(autoload 'smex "smex" nil t nil)
 
 (autoload 'smex-major-mode-commands "smex" "\
-Like `smex', but limited to commands that are relevant to the active major mode.
+Like `smex', but limited to commands that are relevant to the active major mode." t nil)
 
-\(fn)" t nil)
+(autoload 'smex-initialize "smex" nil t nil)
 
-(autoload 'smex-initialize "smex" "\
-
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "smex" '("smex-")))
 
 ;;;***
 
-;;;### (autoloads nil "spinner" "spinner.el" (23975 33179 358258
-;;;;;;  970000))
+;;;### (autoloads nil "spinner" "spinner.el" (0 0 0 0))
 ;;; Generated autoloads from spinner.el
 
 (autoload 'spinner-create "spinner" "\
@@ -4926,10 +4809,12 @@ this time, in which case it won't display at all.
 
 \(fn &optional TYPE-OR-OBJECT FPS DELAY)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "spinner" '("spinner")))
+
 ;;;***
 
-;;;### (autoloads nil "terraform-mode" "terraform-mode.el" (23977
-;;;;;;  43340 86682 60000))
+;;;### (autoloads nil "terraform-mode" "terraform-mode.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from terraform-mode.el
 
 (autoload 'terraform-mode "terraform-mode" "\
@@ -4939,10 +4824,18 @@ Major mode for editing terraform configuration file
 
 (add-to-list 'auto-mode-alist '("\\.tf\\(vars\\)?\\'" . terraform-mode))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "terraform-mode" '("terraform-")))
+
 ;;;***
 
-;;;### (autoloads nil "which-key" "which-key.el" (23975 33179 358258
-;;;;;;  970000))
+;;;### (autoloads nil "treepy" "treepy.el" (0 0 0 0))
+;;; Generated autoloads from treepy.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "treepy" '("treepy-")))
+
+;;;***
+
+;;;### (autoloads nil "which-key" "which-key.el" (0 0 0 0))
 ;;; Generated autoloads from which-key.el
 
 (defvar which-key-mode nil "\
@@ -4958,32 +4851,29 @@ or call the function `which-key-mode'.")
 (autoload 'which-key-mode "which-key" "\
 Toggle which-key-mode.
 
+If called interactively, enable Which-Key mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (autoload 'which-key-setup-side-window-right "which-key" "\
-Apply suggested settings for side-window that opens on right.
-
-\(fn)" t nil)
+Apply suggested settings for side-window that opens on right." t nil)
 
 (autoload 'which-key-setup-side-window-right-bottom "which-key" "\
 Apply suggested settings for side-window that opens on right
-if there is space and the bottom otherwise.
-
-\(fn)" t nil)
+if there is space and the bottom otherwise." t nil)
 
 (autoload 'which-key-setup-side-window-bottom "which-key" "\
 Apply suggested settings for side-window that opens on
-bottom.
-
-\(fn)" t nil)
+bottom." t nil)
 
 (autoload 'which-key-setup-minibuffer "which-key" "\
 Apply suggested settings for minibuffer.
 Do not use this setup if you use the paging commands. Instead use
 `which-key-setup-side-window-bottom', which is nearly identical
-but more functional.
-
-\(fn)" t nil)
+but more functional." t nil)
 
 (autoload 'which-key-add-key-based-replacements "which-key" "\
 Replace the description of KEY-SEQUENCE with REPLACEMENT.
@@ -5034,15 +4924,11 @@ Usually this is `describe-prefix-bindings'.
 
 (autoload 'which-key-show-next-page-no-cycle "which-key" "\
 Show next page of keys unless on the last page, in which case
-call `which-key-show-standard-help'.
-
-\(fn)" t nil)
+call `which-key-show-standard-help'." t nil)
 
 (autoload 'which-key-show-previous-page-no-cycle "which-key" "\
 Show previous page of keys unless on the first page, in which
-case do nothing.
-
-\(fn)" t nil)
+case do nothing." t nil)
 
 (autoload 'which-key-show-next-page-cycle "which-key" "\
 Show the next page of keys, cycling from end to beginning
@@ -5066,9 +4952,7 @@ Show top-level bindings in the map of the current major mode.
 
 This function will also detect evil bindings made using
 `evil-define-key' in this map. These bindings will depend on the
-current evil state. 
-
-\(fn)" t nil)
+current evil state. " t nil)
 
 (autoload 'which-key-undo-key "which-key" "\
 Undo last keypress and force which-key update.
@@ -5078,9 +4962,7 @@ Undo last keypress and force which-key update.
 (autoload 'which-key-C-h-dispatch "which-key" "\
 Dispatch C-h commands by looking up key in
 `which-key-C-h-map'. This command is always accessible (from any
-prefix) if `which-key-use-C-h-commands' is non nil.
-
-\(fn)" t nil)
+prefix) if `which-key-use-C-h-commands' is non nil." t nil)
 
 (autoload 'which-key-show-keymap "which-key" "\
 Show the top-level bindings in KEYMAP using which-key. KEYMAP
@@ -5096,14 +4978,13 @@ selected interactively from all available keymaps.
 
 (autoload 'which-key-show-minor-mode-keymap "which-key" "\
 Show the top-level bindings in KEYMAP using which-key. KEYMAP
-is selected interactively by mode in `minor-mode-map-alist'.
+is selected interactively by mode in `minor-mode-map-alist'." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "which-key" '("which-key-")))
 
 ;;;***
 
-;;;### (autoloads nil "with-editor" "with-editor.el" (23975 33179
-;;;;;;  358258 970000))
+;;;### (autoloads nil "with-editor" "with-editor.el" (0 0 0 0))
 ;;; Generated autoloads from with-editor.el
 
 (autoload 'with-editor-export-editor "with-editor" "\
@@ -5118,14 +4999,10 @@ This works in `shell-mode', `term-mode' and `eshell-mode'.
 \(fn &optional (ENVVAR \"EDITOR\"))" t nil)
 
 (autoload 'with-editor-export-git-editor "with-editor" "\
-Like `with-editor-export-editor' but always set `$GIT_EDITOR'.
-
-\(fn)" t nil)
+Like `with-editor-export-editor' but always set `$GIT_EDITOR'." t nil)
 
 (autoload 'with-editor-export-hg-editor "with-editor" "\
-Like `with-editor-export-editor' but always set `$HG_EDITOR'.
-
-\(fn)" t nil)
+Like `with-editor-export-editor' but always set `$HG_EDITOR'." t nil)
 
 (defvar shell-command-with-editor-mode nil "\
 Non-nil if Shell-Command-With-Editor mode is enabled.
@@ -5136,6 +5013,11 @@ for a description of this minor mode.")
 
 (autoload 'shell-command-with-editor-mode "with-editor" "\
 Teach `shell-command' to use current Emacs instance as editor.
+
+If called interactively, enable Shell-Command-With-Editor mode if
+ARG is positive, and disable it if ARG is zero or negative.  If
+called from Lisp, also enable the mode if ARG is omitted or nil,
+and toggle it if ARG is `toggle'; disable the mode otherwise.
 
 Teach `shell-command', and all commands that ultimately call that
 command, to use the current Emacs instance as editor by executing
@@ -5179,6 +5061,8 @@ else like the former.
 
 \(fn COMMAND &optional OUTPUT-BUFFER ERROR-BUFFER ENVVAR)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "with-editor" '("server-" "shell-command--shell-command-with-editor-mode" "start-file-process--with-editor-process-filter" "with-editor")))
+
 ;;;***
 
 ;;;### (autoloads nil "xclip" "xclip.el" (0 0 0 0))
@@ -5197,14 +5081,18 @@ or call the function `xclip-mode'.")
 (autoload 'xclip-mode "xclip" "\
 Minor mode to use the `xclip' program to copy&paste.
 
+If called interactively, enable Xclip mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "xclip" '("xclip-")))
 
 ;;;***
 
-;;;### (autoloads nil "yaml-mode" "yaml-mode.el" (23975 33179 358258
-;;;;;;  970000))
+;;;### (autoloads nil "yaml-mode" "yaml-mode.el" (0 0 0 0))
 ;;; Generated autoloads from yaml-mode.el
 
 (let ((loads (get 'yaml 'custom-loads))) (if (member '"yaml-mode" loads) nil (put 'yaml 'custom-loads (cons '"yaml-mode" loads))))
@@ -5218,10 +5106,11 @@ Simple mode to edit YAML.
 
 (add-to-list 'auto-mode-alist '("\\.\\(e?ya?\\|ra\\)ml\\'" . yaml-mode))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "yaml-mode" '("yaml-")))
+
 ;;;***
 
-;;;### (autoloads nil "zenburn-theme" "zenburn-theme.el" (23975 33179
-;;;;;;  362258 975000))
+;;;### (autoloads nil "zenburn-theme" "zenburn-theme.el" (0 0 0 0))
 ;;; Generated autoloads from zenburn-theme.el
 
 (defvar zenburn-override-colors-alist 'nil "\
@@ -5234,17 +5123,18 @@ defining them in this alist.")
 
 (and load-file-name (boundp 'custom-theme-load-path) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "zenburn-theme" '("zenburn")))
+
 ;;;***
 
 ;;;### (autoloads nil nil ("buck.el" "company-capf.el" "dash-functional.el"
 ;;;;;;  "dash.el" "editorconfig-core-handle.el" "f.el" "flx.el" "ghub-graphql.el"
-;;;;;;  "glab.el" "go-mode-autoloads.el" "gogs.el" "graphql.el" "gtea.el"
-;;;;;;  "ht.el" "lsp-clients.el" "lsp-ui-doc.el" "lsp-ui-flycheck.el"
-;;;;;;  "lsp-ui-imenu.el" "lsp-ui-peek.el" "lsp-ui-sideline.el" "lsp.el"
-;;;;;;  "magit-core.el" "magit-git.el" "magit-margin.el" "magit-mode.el"
-;;;;;;  "magit-obsolete.el" "magit-pkg.el" "magit-popup.el" "magit-process.el"
-;;;;;;  "magit-section.el" "memoize.el" "ox-hugo-pandoc-cite.el"
-;;;;;;  "s.el" "treepy.el") (0 0 0 0))
+;;;;;;  "glab.el" "gogs.el" "graphql.el" "gtea.el" "ht.el" "lsp-clients.el"
+;;;;;;  "lsp-ui-doc.el" "lsp-ui-flycheck.el" "lsp-ui-imenu.el" "lsp-ui-peek.el"
+;;;;;;  "lsp-ui-sideline.el" "lsp.el" "magit-core.el" "magit-git.el"
+;;;;;;  "magit-margin.el" "magit-mode.el" "magit-obsolete.el" "magit-pkg.el"
+;;;;;;  "magit-popup.el" "magit-process.el" "magit-section.el" "memoize.el"
+;;;;;;  "ox-hugo-pandoc-cite.el" "s.el") (0 0 0 0))
 
 ;;;***
 

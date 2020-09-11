@@ -24,6 +24,11 @@
                                (setq file-name-handler-alist saved--file-name-handler-alist)))
 
 
+;; -------- Default directories --------
+
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
+
 ;; -------- Packages --------
 
 (eval-when-compile (require 'cl-lib))
@@ -141,7 +146,7 @@
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-
+(setq ns-use-proxy-icon nil)
 
 ;; -------- Minor modes --------
 
@@ -164,6 +169,7 @@
 ;; - Panels look better without outset/inset shadows
 
 (require 'zenburn-theme)
+(load-theme 'zenburn)
 
 (zenburn-with-color-variables
   (set-face-background 'fringe zenburn-bg))
