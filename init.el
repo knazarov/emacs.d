@@ -425,10 +425,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (setq org-agenda-files '("~/org/gtd.org"
                          "~/org/weeklyreview.org"
-                         ;; org journal is excluded because it spams
-                         ;; agenda clock report with large amount of
-                         ;; file entries
-                         ;;"~/org/journal"
+                         "~/org/journal"
                          ))
 
 (setq org-agenda-custom-commands nil)
@@ -491,6 +488,8 @@
 ;;(require 'org-journal)
 (setq org-journal-dir (expand-file-name "~/org/journal/"))
 
+(setq org-journal-file-type 'yearly)
+
 (add-hook 'org-mode-hook
           #'(lambda ()
               (local-set-key (kbd "C-c C-j") 'org-journal-new-entry)))
@@ -498,16 +497,16 @@
 (global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
 
 ;; org-journal-file-pattern can be generated like this:
-(setq org-journal-file-format "%Y%m%d.org")
-;;(setq org-journal-file-pattern (org-journal-dir-and-format->regex
-;;                                org-journal-dir org-journal-file-format))
+(setq org-journal-file-format "%Y.org")
+(setq org-journal-file-pattern (org-journal-dir-and-format->regex
+                                org-journal-dir org-journal-file-format))
 
 (setq org-journal-file-pattern
       (concat (file-truename org-journal-dir)
-              "\\(?1:[0-9]\\{4\\}\\)\\(?2:[0-9][0-9]\\)\\(?3:[0-9][0-9]\\).org\\(\\.gpg\\)?\\'"))
+              "\\(?1:[0-9]\\{4\\}\\).org\\(\\.gpg\\)?\\'"))
 
-(add-to-list 'auto-mode-alist
-             (cons org-journal-file-pattern 'org-journal-mode))
+;;(add-to-list 'auto-mode-alist
+;;             (cons org-journal-file-pattern 'org-journal-mode))
 
 ;; -------- Email --------
 
@@ -718,3 +717,8 @@ window, unless BACKGROUND (prefix-argument) is non-nil.
 If vterm is not running yet, start it. Then, show the main
 window, unless BACKGROUND (prefix-argument) is non-nil.
 " t nil)
+
+
+;; lua
+
+(setq lua-indent-level 4)
