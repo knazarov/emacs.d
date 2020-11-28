@@ -490,6 +490,8 @@
 
 (setq org-journal-file-type 'yearly)
 
+(setq org-journal-date-format "%a, %d %b")
+
 (add-hook 'org-mode-hook
           #'(lambda ()
               (local-set-key (kbd "C-c C-j") 'org-journal-new-entry)))
