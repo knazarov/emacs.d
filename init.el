@@ -104,7 +104,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
-(menu-bar-mode -1)
+
+(if (not (eq window-system 'mac))
+    (menu-bar-mode -1))
 
 ;; More reliable inter-window border
 ;; The native border "consumes" a pixel of the fringe on righter-most splits,
@@ -127,6 +129,14 @@
 (setq initial-scratch-message "")
 
 ;; -------- Cursor and movement --------
+
+;; On emacs mac port use Alt as meta key
+
+(if (eq window-system 'mac)
+    (progn
+      (setq mac-option-modifier 'meta)
+      (setq mac-command-modifier nil)
+      (setq mac-pass-command-to-system 't)))
 
 ;; Blinking cursor is inconvenient
 
