@@ -152,6 +152,28 @@ Queries for any of the four available help topics and prints out the appropriate
 
 ;;;***
 
+;;;### (autoloads nil "coffee-mode" "coffee-mode.el" (0 0 0 0))
+;;; Generated autoloads from coffee-mode.el
+
+(autoload 'coffee-mode "coffee-mode" "\
+Major mode for editing CoffeeScript.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.iced\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("Cakefile\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cson\\'" . coffee-mode))
+
+(add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "coffee-mode" '("coffee-" "iced-coffee-cs-keywords" "js2coffee-command")))
+
+;;;***
+
 ;;;### (autoloads nil "company" "company.el" (0 0 0 0))
 ;;; Generated autoloads from company.el
 
